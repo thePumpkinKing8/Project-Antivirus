@@ -7,6 +7,8 @@ public class Shooting : MonoBehaviour
     private PlayerController _player;
     [SerializeField] private Transform _spawner;
 
+
+
     private void Awake()
     {
         _player = GetComponent<PlayerController>();
@@ -22,9 +24,9 @@ public class Shooting : MonoBehaviour
 
     private void Shoot()
     {
-       var projectile = PoolManager.Instance.Spawn("Laser").GetComponent<Laser>();
-        Debug.Log(projectile);
+        var projectile = PoolManager.Instance.Spawn("Laser").GetComponent<Laser>();
         projectile.direction = _player.lastDirection;
         projectile.transform.position = _spawner.position;
+        projectile.OnSpawn();
     }
 }

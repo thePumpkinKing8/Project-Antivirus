@@ -5,7 +5,7 @@ using UnityEngine;
 public class Laser : PoolObject
 {
     [SerializeField] private float _speed;
-    public float direction;
+    [HideInInspector] public float direction;
     private Rigidbody2D _rb;
 
     private void Awake()
@@ -15,7 +15,7 @@ public class Laser : PoolObject
     // Start is called before the first frame update
     void Start()
     {
-        _rb.velocity = new Vector2(_speed * direction, 0);
+      
     }
 
     // Update is called once per frame
@@ -23,7 +23,11 @@ public class Laser : PoolObject
     {
         if (!GetComponent<SpriteRenderer>().isVisible)
             OnDeSpawn();
+    }
 
-
+    public override void OnSpawn()
+    {
+        base.OnSpawn();
+        _rb.velocity = new Vector2(_speed * direction, 0);
     }
 }

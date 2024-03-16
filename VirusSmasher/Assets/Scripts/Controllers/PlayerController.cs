@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Transform _groundCheck;
 
-    [HideInInspector] public float lastDirection;
+    [HideInInspector] public float lastDirection = 1;
     public float Horizontal 
     {
         get
@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        lastDirection = 1;
     }
 
     void Update()
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.velocity = new Vector2(_horizontal * speed,_rb.velocity.y);
+        _rb.velocity = new Vector2(Horizontal * speed,_rb.velocity.y);
 
         if( _isJumping )
         {
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
     private void FlipPlayer()
     {
         if (lastDirection == -1)
-            transform.localScale = Vector3.one * -1;
+            transform.localScale = new Vector3(-1,1,1);
         else if (lastDirection == 1)
             transform.localScale = Vector3.one;
     }
