@@ -281,6 +281,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1238826155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1238826156}
+  m_Layer: 0
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1238826156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238826155}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6562088, y: -1.5723366, z: 0.036409125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1517147750
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331524949235237773, guid: e2a216faed4beee47a0ed25c2e8a6efe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.63
+      value: -9.53
       objectReference: {fileID: 0}
     - target: {fileID: 3331524949235237773, guid: e2a216faed4beee47a0ed25c2e8a6efe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -441,3 +472,4 @@ SceneRoots:
   - {fileID: 1517147753}
   - {fileID: 945552656}
   - {fileID: 4555547666279797812}
+  - {fileID: 1238826156}

@@ -12,6 +12,27 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Transform _groundCheck;
 
+    [HideInInspector] public float lastDirection;
+    public float Horizontal 
+    {
+        get
+        {
+            return _horizontal;
+        }
+
+        private set
+        {
+            if (value != 0)
+            {
+                _horizontal = value;
+                lastDirection = value;
+                FlipPlayer();
+            }
+            else
+                _horizontal = value;
+        } 
+    }
+
     private float _horizontal;
     private Rigidbody2D _rb;
 
@@ -24,11 +45,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        _horizontal = Input.GetAxisRaw("Horizontal");
+        Horizontal = Input.GetAxisRaw("Horizontal");
 
         if(Input.GetButtonDown("Jump") && IsGrounded())
             _isJumping = true;
-
     }
 
     private void FixedUpdate()
@@ -40,6 +60,15 @@ public class PlayerController : MonoBehaviour
             _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
             _isJumping = false;
         }
+
+    }
+
+    private void FlipPlayer()
+    {
+        if (lastDirection == -1)
+            transform.localScale = Vector3.one * -1;
+        else if (lastDirection == 1)
+            transform.localScale = Vector3.one;
     }
 
     //returns true if player is ontop of an object with the ground layer
