@@ -46,9 +46,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Horizontal = Input.GetAxisRaw("Horizontal");
+        Horizontal = InputManager.Move.ReadValue<Vector2>().x;
 
-        if(Input.GetButtonDown("Jump") && IsGrounded())
+        if(InputManager.Jump.triggered && IsGrounded())
             _isJumping = true;
     }
 
