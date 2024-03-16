@@ -32,9 +32,10 @@ public class PlayerController : MonoBehaviour
                 _horizontal = value;
         } 
     }
+    public bool _canDash;
 
     private float _horizontal;
-    private Rigidbody2D _rb;
+    [HideInInspector] public Rigidbody2D _rb;
 
     private bool _isJumping;
 
@@ -71,6 +72,18 @@ public class PlayerController : MonoBehaviour
         else if (lastDirection == 1)
             transform.localScale = Vector3.one;
     }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (IsGrounded())
+        {
+            _canDash = true;
+            Debug.Log("grounded");
+        }
+            
+    }
+
 
     //returns true if player is ontop of an object with the ground layer
     public bool IsGrounded() => Physics2D.OverlapCircle(_groundCheck.position, 1f, LayerMask.GetMask("Ground")); 

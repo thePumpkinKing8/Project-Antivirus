@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 919334633}
   - component: {fileID: 919334634}
+  - component: {fileID: 919334635}
   m_Layer: 0
   m_Name: '[Managers]'
   m_TagString: Untagged
@@ -165,6 +166,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 185223d950824a049b3299712a02b54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &919334635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919334632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2344ddb1cb457974abf0b71bc0e73281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &945552653
@@ -456,9 +469,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 712650666641238619, guid: e2a216faed4beee47a0ed25c2e8a6efe, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 503
+      objectReference: {fileID: 0}
     - target: {fileID: 1016131806878973844, guid: e2a216faed4beee47a0ed25c2e8a6efe, type: 3}
       propertyPath: jumpForce
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538552168708864484, guid: e2a216faed4beee47a0ed25c2e8a6efe, type: 3}
+      propertyPath: _dashForce
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3331524949235237773, guid: e2a216faed4beee47a0ed25c2e8a6efe, type: 3}
       propertyPath: m_LocalPosition.x
