@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   jumpHeight: 10
-  dashForce: 11
+  dashDistance: 5
+  dashTime: 0.1
+  dashCoolDown: 0.6
+  shrinkValue: 2
   groundCheckRadius: 0.1
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
