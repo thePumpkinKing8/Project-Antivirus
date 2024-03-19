@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor.Build;
 using UnityEngine;
+using UnityEngine.InputSystem.XInput;
 
 public class PlayerController : MonoBehaviour
 {
-    
-
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float jumpForce = 10f;
-
     [SerializeField] private Transform _groundCheck;
 
     [HideInInspector] public float lastDirection = 1;
@@ -32,36 +29,65 @@ public class PlayerController : MonoBehaviour
                 _horizontal = value;
         } 
     }
-    public bool _canDash;
-
+    
+    [HideInInspector] public bool grounded = true;
     private float _horizontal;
-    [HideInInspector] public Rigidbody2D _rb;
 
-    private bool _isJumping;
+    public PlayerSettings settings;
+    [HideInInspector] public Rigidbody2D _rb;
+    [HideInInspector] public InputController inputController;
+    [HideInInspector] public Dash dashPower;
+
+    //state machine variables
+    #region StateMachine
+    private BaseState _currentState;
+
+    //states
+    [HideInInspector] public IdleState idleState;
+    [HideInInspector] public WalkingState walkingState;
+    [HideInInspector] public JumpState jumpState;
+    [HideInInspector] public FallingState fallingState;
+    [HideInInspector] public DashState dashState;
+    #endregion
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        inputController = GetComponent<InputController>();
+
+        //powers
+        dashPower = GetComponent<Dash>();
+
         lastDirection = 1;
+
+        // set up player states
+        idleState = new IdleState(this);
+        walkingState = new WalkingState(this);
+        fallingState = new FallingState(this);
+        jumpState = new JumpState(this);
+        dashState = new DashState(this);
+
+        ChangeState(idleState);
     }
 
     void Update()
     {
         Horizontal = InputManager.Move.ReadValue<Vector2>().x;
-
-        if(InputManager.Jump.triggered && IsGrounded())
-            _isJumping = true;
+        _currentState.UpdateState();
+        _currentState.HandleInput();
     }
+
+    public void ChangeState(BaseState state)
+    {
+       _currentState?.ExitState();
+        _currentState = state;
+        _currentState?.EnterState();
+    }
+
+    public BaseState GetCurrentState() => _currentState;
 
     private void FixedUpdate()
     {
-        _rb.velocity = new Vector2(Horizontal * speed,_rb.velocity.y);
-
-        if( _isJumping )
-        {
-            _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
-            _isJumping = false;
-        }
 
     }
 
@@ -76,15 +102,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (IsGrounded())
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            _canDash = true;
-            Debug.Log("grounded");
-        }
-            
+            grounded = true;
+            Debug.Log("trigger");
+        }          
     }
 
 
     //returns true if player is ontop of an object with the ground layer
-    public bool IsGrounded() => Physics2D.OverlapCircle(_groundCheck.position, 1f, LayerMask.GetMask("Ground")); 
+    public bool IsGrounded() => Physics2D.OverlapCircle(_groundCheck.position, settings.groundCheckRadius, settings.groundLayerMask);
+
+    public bool CanDash() => dashPower.SetDash();
+
+    /// <summary>
+    /// Temporary function to reset dash cooldown until an event system is implimented
+    /// </summary>
+    public void TempCoolDownReset() => dashPower.timer = 0;
 }

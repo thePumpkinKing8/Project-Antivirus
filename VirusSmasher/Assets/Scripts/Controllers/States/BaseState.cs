@@ -1,18 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-public class BaseState : MonoBehaviour
+
+/// <summary>
+/// Base class for player states.
+/// </summary>
+public abstract class BaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public string name;
+    protected internal PlayerController player;
+    protected InputController input;
+    protected PlayerSettings settings;
+    protected BaseState(string name, PlayerController player)
+    {
+        this.name = name;
+        this.player = player;
+        input = player.inputController;
+        settings = player.settings;
+    }
+
+    #region Cached Properties
+    /* left over from goofland
+    protected static readonly int Walking = Animator.StringToHash("Walking");
+    protected static readonly int Running = Animator.StringToHash("Running");
+    protected static readonly int Jumping = Animator.StringToHash("Jumping");
+    protected static readonly int Falling = Animator.StringToHash("Falling");
+    protected static readonly int Gliding = Animator.StringToHash("Gliding");
+    protected internal static readonly int Attacking = Animator.StringToHash("Attacking");
+    */
+    #endregion
+
+    protected void ChangeState(BaseState state) => player.ChangeState(state); 
+    public virtual void EnterState() { }
+
+    public virtual void HandleInput()
+    {
+ 
+    }
+
+    public virtual void UpdateState()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public virtual void ExitState() { }
+
+
 }

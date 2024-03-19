@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dash : MonoBehaviour
+public class Dash : CollectablePower
 {
-    [SerializeField] private float _dashForce = 5f;
+    [HideInInspector] public bool grounded;
 
-    private PlayerController _player;
-
-    private void Awake()
+    [HideInInspector] public float timer;
+    protected override void Awake()
     {
-        _player = GetComponent<PlayerController>();
+        base.Awake();
+
+        timer = _player.settings.dashCoolDown;
     }
     // Start is called before the first frame update
     void Start()
@@ -21,22 +22,19 @@ public class Dash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(InputManager.Dash.triggered)
-        {
-            if(_player.IsGrounded())
-                _player._canDash = true;
-            Blink();
-        }
+        if ( timer < _player.settings.dashCoolDown)
+            timer += Time.deltaTime;
+
     }
-    /// <summary>
-    /// makes the player dash
-    /// </summary>
-    private void Blink()
+
+    public bool SetDash()
     {
-        if (!_player._canDash)
-            return;
-        Debug.Log("hi");
-        _player._rb.velocity = InputManager.Move.ReadValue<Vector2>().normalized * _dashForce;
-        _player._canDash = false;
+        if(!_collected)
+            return false;
+        if(_player.grounded && timer >= _player.settings.dashCoolDown)
+            return true;
+        else
+            return false;
     }
+  
 }
