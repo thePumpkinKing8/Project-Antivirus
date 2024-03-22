@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7523582084070492862}
   - component: {fileID: 2538552168708864484}
   - component: {fileID: 5841362268116889359}
+  - component: {fileID: 4620264065947898024}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -176,14 +177,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718e2a69b09522c428aa12eacf397ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpForce: 5
   _groundCheck: {fileID: 470554086658028201}
   lastDirection: 0
-  _canDash: 0
+  grounded: 1
   settings: {fileID: 11400000, guid: 293c631c8f7b4dd49a0f5ef6e875c276, type: 2}
   _rb: {fileID: 0}
   inputController: {fileID: 0}
+  dashPower: {fileID: 0}
 --- !u!114 &7523582084070492862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3328b256855186c45b60383715f9231c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dashForce: 5
+  _collected: 1
+  grounded: 0
+  timer: 0
 --- !u!114 &5841362268116889359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +224,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999ef7ccaac614542bd4fe6927cabdd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4620264065947898024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693141724551156650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4594a8378083d07419ae6e6b0239c4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collected: 1
 --- !u!1 &3928352771747638004
 GameObject:
   m_ObjectHideFlags: 0
