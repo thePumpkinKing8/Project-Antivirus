@@ -17,13 +17,17 @@ public class PlayerController : MonoBehaviour
             return _horizontal;
         }
 
+        //this is messy and may no longer be needed. clean up after prototype
         private set
         {
             if (value != 0)
             {
                 _horizontal = value;
-                lastDirection = value;
-                FlipPlayer();
+                if(lastDirection != value)
+                {
+                    lastDirection = value;
+                    FlipPlayer();
+                }
             }
             else
                 _horizontal = value;
@@ -93,10 +97,10 @@ public class PlayerController : MonoBehaviour
 
     private void FlipPlayer()
     {
-        if (lastDirection == -1)
-            transform.localScale = new Vector3(-1,1,1);
-        else if (lastDirection == 1)
-            transform.localScale = Vector3.one;
+        var size = transform.localScale;
+
+        transform.localScale = new Vector3(size.x * -1,size.y,size.z);
+
     }
 
 
