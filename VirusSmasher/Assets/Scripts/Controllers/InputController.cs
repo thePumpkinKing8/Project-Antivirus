@@ -16,6 +16,9 @@ public class InputController : MonoBehaviour
 
     public bool IsDashing { get; set; }
 
+   
+    
+
     private void Awake() => playerController = GetComponent<PlayerController>();
     
         
@@ -32,4 +35,6 @@ public class InputController : MonoBehaviour
 
         IsFalling = playerController._rb.velocity.y < -0.2f && !playerController.IsGrounded() && !IsDashing;
     }
+
+   
 }

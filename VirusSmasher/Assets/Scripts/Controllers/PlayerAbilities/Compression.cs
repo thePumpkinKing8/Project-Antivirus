@@ -7,6 +7,13 @@ public class Compression : CollectablePower
     private Vector3 _playerScale;
 
     private bool _compressed = false;
+
+
+    //multiple press variables
+    private float press = 0;
+    private float time = 0;
+    [Tooltip("the time the player has to input a second down input in order to shrink the player")]
+    [SerializeField] private float inputDelay = .5f;
     protected override void Awake()
     {
         base.Awake();
@@ -16,9 +23,15 @@ public class Compression : CollectablePower
     // Update is called once per frame
     void Update()
     {
-        if(InputManager.Shrink.triggered)
+        HandleInput();
+    }
+
+    private void HandleInput()
+    {
+        if (InputManager.Shrink.triggered)
         {
             Shrink();
+            return;
         }
     }
 
@@ -36,4 +49,5 @@ public class Compression : CollectablePower
             _compressed = false;    
         }
     }
+
 }

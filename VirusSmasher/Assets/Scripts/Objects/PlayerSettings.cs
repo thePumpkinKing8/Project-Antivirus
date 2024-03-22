@@ -10,6 +10,11 @@ public class PlayerSettings : ScriptableObject
     [Header("PlayerSettings")]
     public float movementSpeed = 5f;
     public float jumpHeight = 10f;
+    public float maxHealth = 100f;
+    public float invulnFrameTime = 1.5f;
+    public float knockBackForce = 6f;
+    [Tooltip("time player has no control after being hit")]
+    public float hitTime = .25f;
 
     [Header("DashSettings")]
     [Tooltip("distance dash travels")]

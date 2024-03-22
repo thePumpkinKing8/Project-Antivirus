@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DashState : BaseState
 {
-    public DashState(PlayerController player) : base("WalkingState",player) 
+    public DashState(PlayerController player) : base("DashState",player) 
     {
     }
     private float timer;
