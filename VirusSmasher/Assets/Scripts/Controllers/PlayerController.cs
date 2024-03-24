@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem.XInput;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +12,10 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public float lastDirection = 1;
 
-    
+
+    public Image healthbar;
+
+
     public float Horizontal 
     {
         get
@@ -130,6 +134,9 @@ public class PlayerController : MonoBehaviour
     public void OnHit(float damage, Vector2 direction)
     {
         _currentHealth -= damage;
+
+        healthbar.fillAmount = _currentHealth / settings.maxHealth;  //Adjusts healthbar based on players health
+
         if (_currentHealth <= 0)
             Die();
         else
@@ -144,6 +151,19 @@ public class PlayerController : MonoBehaviour
     {
         //player dies
     }
+
+
+    public void OnHeal(float heal, Vector2 direction)
+    {
+        _currentHealth += heal;
+
+        healthbar.fillAmount = _currentHealth / settings.maxHealth;   //Adjusts healthbar based on players health
+
+        _currentHealth = Mathf.Clamp(_currentHealth, 0, settings.maxHealth);   //Prevents overhealing past max health
+
+    }
+
+
 
     //returns true if player is ontop of an object with the ground layer
     public bool IsGrounded() => Physics2D.OverlapCircle(_groundCheck.position, settings.groundCheckRadius, settings.groundLayerMask);
