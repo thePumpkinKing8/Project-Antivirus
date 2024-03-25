@@ -30,6 +30,8 @@ public class Compression : CollectablePower
     {
         if (InputManager.Shrink.triggered)
         {
+            if (!_collected)
+                return;
             Shrink();
             return;
         }

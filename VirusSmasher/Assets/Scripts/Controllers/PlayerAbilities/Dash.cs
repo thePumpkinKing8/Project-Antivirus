@@ -13,11 +13,7 @@ public class Dash : CollectablePower
 
         timer = _player.settings.dashCoolDown;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()

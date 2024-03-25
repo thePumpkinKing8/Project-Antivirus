@@ -390,6 +390,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Compress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc26fa3f-b4d6-4e88-85ad-4af1d3dba957"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Compress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }

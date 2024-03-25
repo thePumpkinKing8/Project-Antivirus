@@ -11,4 +11,9 @@ public class CollectablePower : MonoBehaviour
     {
         _player = GetComponent<PlayerController>();
     }
+
+    public void Collect()
+    {
+        _collected = true;
+    }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "InputAction",
+    "name": "InputActions",
     "maps": [
         {
             "name": "Player",
@@ -362,6 +362,17 @@
                     "name": "",
                     "id": "1de953b3-0ed5-4f85-b06b-62d637635a57",
                     "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KBM",
+                    "action": "Compress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc26fa3f-b4d6-4e88-85ad-4af1d3dba957",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "KBM",
