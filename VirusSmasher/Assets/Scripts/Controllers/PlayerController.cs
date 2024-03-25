@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEditor.Build;
 using UnityEngine;
-using UnityEngine.InputSystem.XInput;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -108,10 +105,6 @@ public class PlayerController : MonoBehaviour
 
     public BaseState GetCurrentState() => _currentState;
 
-    private void FixedUpdate()
-    {
-
-    }
 
     private void FlipPlayer()
     {
@@ -121,6 +114,7 @@ public class PlayerController : MonoBehaviour
 
         transform.localScale = new Vector3(direction.x * Mathf.Abs(size.x),size.y,size.z);
 
+    
     }
 
 
@@ -171,7 +165,7 @@ public class PlayerController : MonoBehaviour
         {
             > 0 => Vector3.right,
             < 0 => Vector3.left,
-            _ => Vector3.zero
+            _ => new Vector3(Mathf.Round(lastDirection),0,0),
         };
     }
 
