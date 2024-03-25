@@ -65,6 +65,9 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        if (GameManager.Instance.player == null)
+            GameManager.Instance.player = this;
+
         _rb = GetComponent<Rigidbody2D>();
         inputController = GetComponent<InputController>();
 
