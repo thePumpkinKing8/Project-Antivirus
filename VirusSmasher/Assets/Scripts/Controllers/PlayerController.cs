@@ -97,9 +97,6 @@ public class PlayerController : MonoBehaviour
         _currentState.UpdateState();
         _currentState.HandleInput();
 
-        //test input
-        if (Input.GetKeyDown(KeyCode.V))
-            OnHit(10, new Vector2(-1, 0));
     }
 
     public void ChangeState(BaseState state)
@@ -119,8 +116,10 @@ public class PlayerController : MonoBehaviour
     private void FlipPlayer()
     {
         var size = transform.localScale;
+        Vector3 direction = GetPlayerDirection();
 
-        transform.localScale = new Vector3(size.x * -1,size.y,size.z);
+
+        transform.localScale = new Vector3(direction.x * Mathf.Abs(size.x),size.y,size.z);
 
     }
 
@@ -165,6 +164,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+    private Vector3 GetPlayerDirection()
+    {
+        return inputController.MoveInput.x switch
+        {
+            > 0 => Vector3.right,
+            < 0 => Vector3.left,
+            _ => Vector3.zero
+        };
+    }
 
 
     //returns true if player is ontop of an object with the ground layer

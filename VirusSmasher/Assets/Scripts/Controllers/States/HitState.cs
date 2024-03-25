@@ -12,7 +12,6 @@ public class HitState : BaseState
 
     public override void EnterState()
     {
-        Debug.Log(direction);
         base.EnterState();
         player._rb.velocity = direction * settings.knockBackForce;
 

@@ -17,7 +17,6 @@ public class DashState : BaseState
 
         player.grounded = false;
 
-        Debug.Log("dash enter");
     }
 
     public override void UpdateState()
