@@ -127,7 +127,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             grounded = true;
-            Debug.Log("trigger");
         }          
     }
 
@@ -141,8 +140,8 @@ public class PlayerController : MonoBehaviour
             Die();
         else
         {
-            ChangeState(hitState);
             hitState.direction = direction;
+            ChangeState(hitState);
         }
 
     }

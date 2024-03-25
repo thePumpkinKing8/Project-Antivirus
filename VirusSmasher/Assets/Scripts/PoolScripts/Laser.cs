@@ -30,4 +30,9 @@ public class Laser : PoolObject
         base.OnSpawn();
         _rb.velocity = new Vector2(_speed * direction, 0);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        OnDeSpawn();
+    }
 }
