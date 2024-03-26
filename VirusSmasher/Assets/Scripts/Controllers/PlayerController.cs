@@ -126,8 +126,9 @@ public class PlayerController : MonoBehaviour
         }     
         if(_currentState == dashState)
         {
-            _rb.velocity = Vector3.zero;
             ChangeState(IsGrounded() ? walkingState : fallingState);
+            _rb.velocity = Vector3.zero;
+            transform.position = dashState.storedPosition;
         }
     }
 

@@ -9,6 +9,7 @@ public class DashState : BaseState
     {
     }
     private float timer;
+    [HideInInspector] public Vector3 storedPosition;
     public override void EnterState()
     {
         input.IsDashing = true;
@@ -30,6 +31,7 @@ public class DashState : BaseState
     
     private void Move()
     {
+        storedPosition = player.transform.position;
         var direction = input.MoveInput;
         if (direction == Vector2.zero)
             direction = Vector2.right * player.lastDirection;
