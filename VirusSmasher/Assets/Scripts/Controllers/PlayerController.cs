@@ -124,6 +124,8 @@ public class PlayerController : MonoBehaviour
         {
             grounded = true;
         }     
+
+        //prevents player from dashing through objects
         if(_currentState == dashState)
         {
             ChangeState(IsGrounded() ? walkingState : fallingState);
