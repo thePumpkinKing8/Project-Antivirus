@@ -11,7 +11,11 @@ public class Room : MonoBehaviour
     void Start()
     {
         if (_startingRoom)
+        {
             RoomManager.Instance.currentRoom = this;
+            RoomManager.Instance.LoadRoom(this, GetComponentInChildren<Door>());
+
+        }
         else
             UnLoad();
     }
