@@ -123,7 +123,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             grounded = true;
-        }          
+        }     
+        if(_currentState == dashState)
+        {
+            _rb.velocity = Vector3.zero;
+            ChangeState(IsGrounded() ? walkingState : fallingState);
+        }
     }
 
     public void OnHit(float damage, Vector2 direction)
