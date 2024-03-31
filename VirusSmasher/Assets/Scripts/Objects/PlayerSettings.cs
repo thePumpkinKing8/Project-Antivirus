@@ -10,6 +10,8 @@ public class PlayerSettings : ScriptableObject
     [Header("PlayerSettings")]
     public float movementSpeed = 5f;
     public float jumpHeight = 10f;
+    [Tooltip("lower the value lower the jump")]
+    public float lowJumpMultiplier = 5f;
     public float maxHealth = 100f;
     public float invulnFrameTime = 1.5f;
     public float knockBackForce = 6f;
