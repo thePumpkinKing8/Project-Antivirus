@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   jumpHeight: 10
+  lowJumpMultiplier: 5
   maxHealth: 100
   invulnFrameTime: 1.5
   knockBackForce: 6
   hitTime: 0.5
+  shootingCooldown: 0.25
   dashDistance: 5
   dashTime: 0.1
   dashCoolDown: 0.6

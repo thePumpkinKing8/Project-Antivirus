@@ -2243,7 +2243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraType: 0
-  _startingRoom: 0
+  _startingRoom: 1
 --- !u!4 &361490336
 Transform:
   m_ObjectHideFlags: 0
@@ -8530,7 +8530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraType: 0
-  _startingRoom: 1
+  _startingRoom: 0
 --- !u!1 &1746180575
 GameObject:
   m_ObjectHideFlags: 0

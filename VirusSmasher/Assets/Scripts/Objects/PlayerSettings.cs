@@ -18,6 +18,9 @@ public class PlayerSettings : ScriptableObject
     [Tooltip("time player has no control after being hit")]
     public float hitTime = .25f;
 
+    [Header("ShootingSettings")]
+    public float shootingCooldown = .15f;
+
     [Header("DashSettings")]
     [Tooltip("distance dash travels")]
     public float dashDistance = 5f;

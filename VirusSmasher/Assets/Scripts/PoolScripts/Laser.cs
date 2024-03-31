@@ -29,6 +29,10 @@ public class Laser : PoolObject
     {
         base.OnSpawn();
         _rb.velocity = new Vector2(_speed * direction, 0);
+        if (direction < 0)
+            GetComponent<SpriteRenderer>().flipX = true;
+        else
+            GetComponent<SpriteRenderer>().flipX = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
