@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public float lastDirection = 1;
 
 
-    public Image healthbar;
+   [HideInInspector] public Healthbar healthbar;
 
 
     public float Horizontal 
@@ -136,9 +136,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnHit(float damage, Vector2 direction)
     {
-        _currentHealth -= damage;
-
-        healthbar.fillAmount = _currentHealth / settings.maxHealth;  //Adjusts healthbar based on players health
+        ChangeHealth(-damage);
 
         if (_currentHealth <= 0)
             Die();
@@ -147,25 +145,17 @@ public class PlayerController : MonoBehaviour
             hitState.direction = direction;
             ChangeState(hitState);
         }
-
     }
 
+    public void ChangeHealth(float health)
+    {
+        _currentHealth += health;
+        healthbar.ChangeHealthFill(_currentHealth);//fillAmount = _currentHealth / settings.maxHealth;  //Adjusts healthbar based on players health
+    }
     private void Die()
     {
         //player dies
     }
-
-
-    public void OnHeal(float heal, Vector2 direction)
-    {
-        _currentHealth += heal;
-
-        healthbar.fillAmount = _currentHealth / settings.maxHealth;   //Adjusts healthbar based on players health
-
-        _currentHealth = Mathf.Clamp(_currentHealth, 0, settings.maxHealth);   //Prevents overhealing past max health
-
-    }
-
 
     private Vector3 GetPlayerDirection()
     {

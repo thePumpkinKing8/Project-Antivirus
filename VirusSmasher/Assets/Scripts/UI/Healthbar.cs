@@ -6,46 +6,24 @@ using UnityEngine.UI;
 public class Healthbar : MonoBehaviour
 {
 
-    public Image healthbar;
+    private Image healthbar;
 
 
-    public float health = 100f;
+    private float _maxHealth = 100f;
 
 
 
-
-    void Start()
+    private void Start()
     {
-        
+        healthbar = GetComponent<Image>();
+        GameManager.Instance.player.healthbar = this;
+        _maxHealth = GameManager.Instance.player.settings.maxHealth;
     }
 
-    
-    void Update()
+    public void ChangeHealthFill(float value)
     {
-      if (health == 0)
-        {
-
-        }  
+        if(value > _maxHealth) 
+            value = _maxHealth;
+        healthbar.fillAmount = value / _maxHealth;
     }
-
-
-    public void takeHealth(float damage)
-    {
-        health -= damage;
-
-        healthbar.fillAmount = health / 100;
-    }
-
-
-    public void addHealth(float heal)
-    {
-        health += heal;
-
-        health = Mathf.Clamp(health, 0, 100);
-
-        healthbar.fillAmount = health / 100;
-    }
-
-
-
 }
