@@ -7,6 +7,7 @@ public class Room : MonoBehaviour
     [Tooltip("static camera stay still, a dynamic camera will follow the player")]
     public CameraType _cameraType;
     [SerializeField] private bool _startingRoom;
+    public Transform cameraPos;
     // Start is called before the first frame update
     void Start()
     {

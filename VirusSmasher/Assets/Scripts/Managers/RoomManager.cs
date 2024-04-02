@@ -16,9 +16,10 @@ public class RoomManager : Singleton<RoomManager>
     public void LoadRoom(Room room, Door entrance)
     {
         currentRoom.UnLoad();
+        _camera.ChangeCamera(room._cameraType, room.cameraPos == null ? room.transform.position : room.cameraPos.position);
         room.Load(entrance);
         currentRoom = room;
-        _camera.ChangeCamera(room._cameraType, room.transform.position);
+        
     }
 
     
