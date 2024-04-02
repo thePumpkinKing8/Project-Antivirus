@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     //this prevents us from having to instantiate new enemies everytime a room loads
     public virtual void DeSpawn()
     {
+        var drop = PoolManager.Instance.Spawn("HealthPickup");
+        drop.transform.position = transform.position;
         gameObject.SetActive(false);
     }
 
