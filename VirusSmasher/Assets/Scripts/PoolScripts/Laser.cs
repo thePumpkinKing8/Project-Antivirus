@@ -11,6 +11,7 @@ public class Laser : PoolObject
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        GetComponent<SpriteRenderer>().color = GameManager.Instance.color;
     }
     // Start is called before the first frame update
     void Start()

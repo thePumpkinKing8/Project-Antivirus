@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Room : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class Room : MonoBehaviour
         {
             RoomManager.Instance.currentRoom = this;
             RoomManager.Instance.LoadRoom(this, GetComponentInChildren<Door>());
-
+            GameManager.Instance.SetArea();
+            Load();
         }
         else
             UnLoad();
@@ -27,13 +29,21 @@ public class Room : MonoBehaviour
         
     }
 
-    public void Load(Door entrance)
+    public void Load(Door entrance = null )
     {
         foreach(Transform child in transform)
         {
             child.gameObject.SetActive(true);
         }
-        entrance.EnterRoom();
+        foreach(SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
+        {
+            sprite.color = GameManager.Instance.color;
+        }
+        foreach(Tilemap tilemap in GetComponentsInChildren<Tilemap>())
+        {
+            tilemap.color = GameManager.Instance.color;
+        }
+        entrance?.EnterRoom();
     }
 
     public void UnLoad()

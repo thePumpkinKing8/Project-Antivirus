@@ -13,6 +13,7 @@ public class InputManager : Singleton<InputManager>
     public static InputAction Dash => Instance._actions.Player.Dash;
     public static InputAction Shrink => Instance._actions.Player.Compress;
     public static InputAction Shield => Instance._actions.Player.Shield;
+    public static InputAction Pause => Instance._actions.UI.Pause;
 
 
     protected override void OnAwake()

@@ -14,9 +14,6 @@ public class PlayerController : MonoBehaviour
    [HideInInspector] public Healthbar healthbar;
 
 
-    public WinLoseUI WinLoseui;
-
-
     public float Horizontal 
     {
         get
@@ -168,11 +165,11 @@ public class PlayerController : MonoBehaviour
     public void ChangeHealth(float health)
     {
         _currentHealth += health;
-        healthbar.ChangeHealthFill(_currentHealth);//fillAmount = _currentHealth / settings.maxHealth;  //Adjusts healthbar based on players health
+        healthbar.ChangeHealthFill(_currentHealth);  //Adjusts healthbar based on players health
     }
     private void Die()
     {
-        WinLoseui.PlayerDeath();
+        //player dies
     }
 
     private Vector3 GetPlayerDirection()
