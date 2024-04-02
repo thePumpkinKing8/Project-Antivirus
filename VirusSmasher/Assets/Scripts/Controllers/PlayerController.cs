@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -60,6 +61,15 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public HitState hitState;
     #endregion
 
+    //GameEvents
+    #region Events
+
+
+    [HideInInspector] public GameEvent jumpEvent;
+    [HideInInspector] public GameEvent hurtEvent;
+   
+    #endregion
+
     private void Awake()
     {
         if (GameManager.Instance.player == null)
@@ -77,15 +87,20 @@ public class PlayerController : MonoBehaviour
         lastDirection = 1;
 
         // set up player states
+        #region StateSetUp
         idleState = new IdleState(this);
         walkingState = new WalkingState(this);
         fallingState = new FallingState(this);
         jumpState = new JumpState(this);
         dashState = new DashState(this);
         hitState = new HitState(this);
-
+        #endregion
         ChangeState(idleState);
-        
+
+        #region EventSetUp
+        jumpEvent = EventSetUp("JumpEvent");
+        hurtEvent = EventSetUp("HurtEvent");
+        #endregion
     }
 
     void Update()
@@ -177,6 +192,17 @@ public class PlayerController : MonoBehaviour
     /// Temporary function to reset dash cooldown until an event system is implimented
     /// </summary>
     public void TempCoolDownReset() => dashPower.timer = 0;
+
+    private GameEvent EventSetUp(string name)
+    {
+        foreach(GameEvent gameEvent in Resources.LoadAll<GameEvent>("Events"))
+        {
+            if(gameEvent.name == name)
+                return gameEvent;
+        }
+        Debug.Log($"no Event with the name {name} found");
+        return null;
+    }
 
 
 

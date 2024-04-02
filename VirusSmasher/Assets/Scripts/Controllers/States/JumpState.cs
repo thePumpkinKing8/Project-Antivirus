@@ -19,6 +19,7 @@ public class JumpState : Airborne
     {
         if (!player.IsGrounded()) return;
 
+        player.jumpEvent.Raise();
         player._rb.velocity = new Vector2(player._rb.velocity.x, player.settings.jumpHeight);
     }
 
