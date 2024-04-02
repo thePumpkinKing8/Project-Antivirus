@@ -22,7 +22,7 @@ public class WalkingState : Grounded
     public override void UpdateState()
     {
         base.UpdateState();
-
+        Debug.Log("update");
         player._rb.velocity = new Vector2(input.MoveInput.x * player.settings.movementSpeed, player._rb.velocity.y);
     }
 }

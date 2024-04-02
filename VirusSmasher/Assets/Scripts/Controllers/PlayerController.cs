@@ -138,8 +138,9 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             grounded = true;
-        }     
+        }
 
+       
         //prevents player from dashing through objects
         if(_currentState == dashState)
         {
