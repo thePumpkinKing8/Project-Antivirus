@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     public Image healthbar;
 
 
+    public WinLoseUI WinLoseui;
+
+
     public float Horizontal 
     {
         get
@@ -152,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
-        //player dies
+        WinLoseui.PlayerDeath();
     }
 
 
