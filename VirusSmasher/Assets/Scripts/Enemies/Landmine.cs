@@ -4,22 +4,8 @@ using UnityEngine;
 
 public class Landmine : Enemy
 {
-
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
-
     private void OnCollisionEnter2D(Collision2D c)
     {
-
 
         if (c.gameObject.layer == LayerMask.NameToLayer("Player"))
         {

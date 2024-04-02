@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float _damage = 20f;
 
 
-    //spawns and despawns object on death and when the room loads/unloads
+    //spawns and despawns object on death 
     //this prevents us from having to instantiate new enemies everytime a room loads
     public virtual void DeSpawn()
     {
@@ -20,4 +20,28 @@ public class Enemy : MonoBehaviour
     {
        gameObject.SetActive(true);
     }
+
+    public virtual void Patrol()
+    {
+
+    }
+
+    public virtual void Wait(float time)
+    {
+
+    }
+
+    public virtual void Attack()
+    {
+
+    }
+
+
+}
+
+public enum EnemyState
+{
+    Patrol,
+    Wait,
+    Attack,
 }
