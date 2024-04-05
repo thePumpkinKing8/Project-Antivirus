@@ -4495,6 +4495,8 @@ GameObject:
   - component: {fileID: 1016819915}
   - component: {fileID: 1016819914}
   - component: {fileID: 1016819916}
+  - component: {fileID: 1016819918}
+  - component: {fileID: 1016819917}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -4545,6 +4547,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoseMenu: {fileID: 1049372011}
   WinMenu: {fileID: 132192188}
+--- !u!114 &1016819917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016819913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e920e7643b9c283428002bc17d4843ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1688758278}
+--- !u!114 &1016819918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016819913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbac426e0321034f9d3383e41dbfec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dashpickup: {fileID: 0}
+  Firewallpickup: {fileID: 0}
+  Compresspickup: {fileID: 0}
+  Dashicon: {fileID: 0}
+  Firewallicon: {fileID: 0}
+  Compressicon: {fileID: 0}
 --- !u!1 &1017643592
 GameObject:
   m_ObjectHideFlags: 0
