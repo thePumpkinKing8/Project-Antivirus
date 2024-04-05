@@ -26,4 +26,6 @@ public class CameraController : MonoBehaviour
             transform.parent = GameManager.Instance.player.transform;
         }
     }
+
+    //note for later: in dynamic mode camera should not follow player vertically until they land on a platform
 }

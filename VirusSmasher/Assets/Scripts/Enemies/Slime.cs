@@ -15,13 +15,13 @@ public class Slime : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        
+        _state = EnemyState.Patrol;
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update();
     }
 
     public override void Patrol()
@@ -31,9 +31,31 @@ public class Slime : Enemy
         _rb.velocity = new Vector2(-_speed, _rb.velocity.y);
     }
 
+    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        _speed *= -1;
+        //switch statment to determin what type of object this collided with
+        string cLayer = LayerMask.LayerToName(collision.gameObject.layer);
+        switch (cLayer)
+        {
+            case "Player":
+                HitPlayer(collision);
+                break;
+            case "PlayerProjectile":
+                DeSpawn();
+                break;
+
+            case "Walls":
+                _speed *= -1;
+                _state = EnemyState.Wait;
+                break;
+
+            case "WorldObject":
+                _speed *= -1;
+                _state = EnemyState.Wait;
+                break;
+        }
     }
 }
 
