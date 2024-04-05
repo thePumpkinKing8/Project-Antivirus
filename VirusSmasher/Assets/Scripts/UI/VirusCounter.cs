@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class VirusCounter : MonoBehaviour
 {
-    private int Virusleft = 0;
+    private int Virusleft = 10;
     public TextMeshProUGUI scoreText;
 
-    public WinLoseUI WinLoseui;
+    protected WinLoseUI WinLoseui;
 
     void Start()
     {
