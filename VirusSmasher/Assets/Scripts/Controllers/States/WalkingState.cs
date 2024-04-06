@@ -8,6 +8,12 @@ public class WalkingState : Grounded
     {
     }
 
+    public override void EnterState()
+    {
+        base.EnterState();
+        player.anim.SetBool("Walking", true);
+    }
+
     public override void HandleInput()
     {
         base.HandleInput();
@@ -23,5 +29,11 @@ public class WalkingState : Grounded
     {
         base.UpdateState();
         player._rb.velocity = new Vector2(input.MoveInput.x * player.settings.movementSpeed, player._rb.velocity.y);
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+        player.anim.SetBool("Walking", false);
     }
 }

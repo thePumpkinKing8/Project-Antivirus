@@ -1,6 +1,9 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -47,6 +50,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Rigidbody2D _rb;
     [HideInInspector] public InputController inputController;
     [HideInInspector] public Dash dashPower;
+    [HideInInspector] public Animator anim;
 
     //state machine variables
     #region StateMachine
@@ -64,9 +68,9 @@ public class PlayerController : MonoBehaviour
     //GameEvents
     #region Events
 
-
-    [HideInInspector] public GameEvent jumpEvent;
-    [HideInInspector] public GameEvent hurtEvent;
+    [Header("Events")]
+     public GameEvent jumpEvent;
+     public GameEvent hurtEvent;
    
     #endregion
 
@@ -77,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
         _rb = GetComponent<Rigidbody2D>();
         inputController = GetComponent<InputController>();
+        anim = GetComponent<Animator>();
 
         //set player health
         _currentHealth = settings.maxHealth;
@@ -97,10 +102,7 @@ public class PlayerController : MonoBehaviour
         #endregion
         ChangeState(idleState);
 
-        #region EventSetUp
-        jumpEvent = EventSetUp("JumpEvent");
-        hurtEvent = EventSetUp("HurtEvent");
-        #endregion
+        
     }
 
     void Update()
@@ -194,17 +196,16 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void TempCoolDownReset() => dashPower.timer = 0;
 
-    private GameEvent EventSetUp(string name)
-    {
-        foreach(GameEvent gameEvent in Resources.LoadAll<GameEvent>("Events"))
-        {
-            if(gameEvent.name == name)
-                return gameEvent;
-        }
-        Debug.Log($"no Event with the name {name} found");
-        return null;
-    }
+
+    /// <summary>
+    /// searches for and returns an event with the appropriate name 
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    
 
 
 
 }
+
+
