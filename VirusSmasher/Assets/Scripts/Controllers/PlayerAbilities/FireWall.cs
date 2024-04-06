@@ -55,6 +55,7 @@ public class FireWall : CollectablePower
         
     }
 
+    //this is called by an event
     public void HitShield(object value)
     {
         var damage = value as int?;

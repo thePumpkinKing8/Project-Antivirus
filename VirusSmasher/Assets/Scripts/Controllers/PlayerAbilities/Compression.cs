@@ -43,12 +43,13 @@ public class Compression : CollectablePower
         //divides the players local scale by the "shrinkValue"
         if (!_player.inputController.IsSmall)
         {
-            _player.transform.localScale = _player.transform.localScale / _player.settings.shrinkValue;
+            _player.transform.localScale = new Vector3((_player.transform.localScale.x / _player.settings.shrinkValue) , (_player.transform.localScale.y / _player.settings.shrinkValue) , (_player.transform.localScale.z / _player.settings.shrinkValue));
+            
             _player.inputController.IsSmall = true;
         }
         else
         {
-            _player.transform.localScale = _playerScale;
+            _player.transform.localScale = new Vector3( _playerScale.x * _player.lastDirection, _playerScale.y, _playerScale.z) ;
             _player.inputController.IsSmall = false;    
         }
     }
