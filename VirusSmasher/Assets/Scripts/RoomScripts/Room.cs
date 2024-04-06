@@ -9,6 +9,12 @@ public class Room : MonoBehaviour
     public CameraType _cameraType;
     [SerializeField] private bool _startingRoom;
     public Transform cameraPos;
+
+    private void Awake()
+    {
+        if (!cameraPos)
+            cameraPos = transform;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +28,6 @@ public class Room : MonoBehaviour
         else
             UnLoad();
 
-        if(cameraPos.position == null)
-            cameraPos.position = transform.position;
     }
 
     // Update is called once per frame

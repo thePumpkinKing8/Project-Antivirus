@@ -61,7 +61,10 @@ public class Enemy : MonoBehaviour
     {
         _timer += Time.deltaTime;
         if (_timer >= _waitTime)
+        {
             _state = EnemyState.Patrol;
+            _timer = 0;
+        }
     }
 
     public virtual void Attack()
