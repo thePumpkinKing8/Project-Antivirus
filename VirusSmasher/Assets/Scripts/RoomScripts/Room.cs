@@ -15,12 +15,15 @@ public class Room : MonoBehaviour
         if (_startingRoom)
         {
             RoomManager.Instance.currentRoom = this;
-            RoomManager.Instance.LoadRoom(this, GetComponentInChildren<Door>());
+            RoomManager.Instance.LoadRoom(this);
             GameManager.Instance.SetArea();
             Load();
         }
         else
             UnLoad();
+
+        if(cameraPos.position == null)
+            cameraPos.position = transform.position;
     }
 
     // Update is called once per frame
@@ -43,7 +46,13 @@ public class Room : MonoBehaviour
         {
             tilemap.color = GameManager.Instance.color;
         }
-        entrance?.EnterRoom();
+        if (entrance != null)
+        {
+            entrance.EnterRoom();
+        }
+        else
+            GameManager.Instance.player.transform.position = cameraPos.position;
+        
     }
 
     public void UnLoad()
