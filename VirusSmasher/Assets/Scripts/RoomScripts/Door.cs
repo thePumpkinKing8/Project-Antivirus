@@ -8,11 +8,19 @@ public class Door : MonoBehaviour
     [HideInInspector] public Room parentRoom;
     private bool _isActive = true;
     [SerializeField] private Transform _exitLocation;
+    [SerializeField] private float _triggerDistance;
 
     private void Awake()
     {
         parentRoom = GetComponentInParent<Room>();
+    }
 
+    private void Update()
+    {
+        if(_triggerDistance <= (GameManager.Instance.player.transform.position - transform.position).magnitude) 
+        {
+            //play open animation
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

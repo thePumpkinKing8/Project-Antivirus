@@ -16,7 +16,9 @@ public class InputController : MonoBehaviour
 
     public bool IsDashing { get; set; }
 
-   
+    public bool IsShielding {  get; set; }
+
+   public bool IsSmall {  get; set; }
     
 
     private void Awake() => playerController = GetComponent<PlayerController>();
@@ -34,6 +36,8 @@ public class InputController : MonoBehaviour
         IsMoving = MoveInput != Vector2.zero || InputManager.Move.IsInProgress();
 
         IsFalling = playerController._rb.velocity.y < -0.2f && !playerController.IsGrounded() && !IsDashing;
+
+        IsShielding = !IsDashing && !IsSmall && InputManager.Shield.IsPressed();
     }
 
    

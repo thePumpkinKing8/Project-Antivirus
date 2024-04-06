@@ -6,9 +6,6 @@ public class Compression : CollectablePower
 {
     private Vector3 _playerScale;
 
-    private bool _compressed = false;
-
-
     //multiple press variables
     private float press = 0;
     private float time = 0;
@@ -18,6 +15,10 @@ public class Compression : CollectablePower
     {
         base.Awake();
         _playerScale = _player.transform.localScale;
+    }
+    private void Start()
+    {
+        _player.inputController.IsSmall = false;
     }
 
     // Update is called once per frame
@@ -40,15 +41,15 @@ public class Compression : CollectablePower
     private void Shrink()
     {
         //divides the players local scale by the "shrinkValue"
-        if (!_compressed)
+        if (!_player.inputController.IsSmall)
         {
             _player.transform.localScale = _player.transform.localScale / _player.settings.shrinkValue;
-            _compressed = true;
+            _player.inputController.IsSmall = true;
         }
         else
         {
             _player.transform.localScale = _playerScale;
-            _compressed = false;    
+            _player.inputController.IsSmall = false;    
         }
     }
 

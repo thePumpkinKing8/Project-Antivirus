@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(fileName = "Player", menuName = "Player/Settings")]
 public class PlayerSettings : ScriptableObject
 {
-    [Header("PlayerSettings")]
+    [Header("Player Settings")]
     public float movementSpeed = 5f;
     public float jumpHeight = 10f;
     [Tooltip("lower the value lower the jump")]
@@ -18,21 +18,26 @@ public class PlayerSettings : ScriptableObject
     [Tooltip("time player has no control after being hit")]
     public float hitTime = .25f;
 
-    [Header("ShootingSettings")]
+    [Header("Shooting Settings")]
     public float shootingCooldown = .15f;
 
-    [Header("DashSettings")]
+    [Header("Dash Settings")]
     [Tooltip("distance dash travels")]
     public float dashDistance = 5f;
     [Tooltip("time for dash to complete, the lower the faster")]
     public float dashTime = 0.5f;
     public float dashCoolDown = 0.6f;
 
-    [Header("ShrinkSettings")]
+    [Header("Shrink Settings")]
     [Tooltip("amount the players scale will be divided by")]
     public float shrinkValue = 2f;
 
-    [Header("GroundCheckSettings")]
+    [Header("Shield Settings")]
+    public int shieldHealth = 25;
+    [Tooltip("time it takes for shield to become available to plaayer after breaking")]
+    public float rechargeTime = 20f;
+
+    [Header("GroundCheck Settings")]
     public float groundCheckRadius = 0.1f;
     public LayerMask groundLayerMask;
 
