@@ -4,6 +4,8 @@ public class InputController : MonoBehaviour
 {
     private PlayerController playerController;
 
+    private Animator _animator;
+
     public Vector2 MoveInput { get; private set; }
 
     public bool IsIdle {  get; private set; }
@@ -18,10 +20,27 @@ public class InputController : MonoBehaviour
 
     public bool IsShielding {  get; set; }
 
-   public bool IsSmall {  get; set; }
+    private bool _isSmall;
+   public bool IsSmall 
+    {
+        get
+        {
+            return _isSmall;
+        } 
+        set
+        {
+            _animator.SetBool("Compressed", value);
+            _isSmall = value;
+        }
+    }
     
 
-    private void Awake() => playerController = GetComponent<PlayerController>();
+    private void Awake()
+    {
+        playerController = GetComponent<PlayerController>();
+        _animator = playerController.GetComponent<Animator>();
+    }
+    
     
         
     

@@ -24,7 +24,8 @@ public class Compression : CollectablePower
     // Update is called once per frame
     void Update()
     {
-        HandleInput();
+        if(!_player.inputController.IsDashing)
+            HandleInput();
     }
 
     private void HandleInput()
