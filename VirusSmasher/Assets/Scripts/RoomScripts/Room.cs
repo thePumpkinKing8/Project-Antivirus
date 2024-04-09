@@ -10,10 +10,19 @@ public class Room : MonoBehaviour
     [SerializeField] private bool _startingRoom;
     public Transform cameraPos;
 
+    private GameEvent _loadEvent;
+
     private void Awake()
     {
         if (!cameraPos)
             cameraPos = transform;
+
+        foreach (GameEvent gEvent in Resources.LoadAll<GameEvent>("Events"))
+        { 
+            if(gEvent.name == "RoomLoadEvent")
+                _loadEvent = gEvent;
+        }
+
     }
     // Start is called before the first frame update
     void Start()
@@ -56,6 +65,8 @@ public class Room : MonoBehaviour
         }
         else
             GameManager.Instance.player.transform.position = cameraPos.position;
+
+        _loadEvent.Raise();
         
     }
 

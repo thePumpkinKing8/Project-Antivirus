@@ -8,8 +8,9 @@ public class Slime : Enemy
 
     private Rigidbody2D _rb;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _rb = GetComponent<Rigidbody2D>();
     }
     // Start is called before the first frame update

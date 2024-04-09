@@ -10,8 +10,9 @@ public class Spitter : Enemy
 
     [SerializeField] private int _agroDistance;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _projectileSpawner = GetComponentInChildren<Transform>();
     }
     // Start is called before the first frame update
@@ -45,5 +46,22 @@ public class Spitter : Enemy
         _state = EnemyState.Wait;
     }
 
-    
+    private void OnCollisionEnter2D(Collision2D c)
+    {
+
+        if (c.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            Vector2 direction = -c.relativeVelocity.normalized;
+            c.gameObject.GetComponent<PlayerController>().OnHit(_damage, direction);
+            Debug.Log(direction);
+        }
+
+        if (c.gameObject.layer == LayerMask.NameToLayer("PlayerProjectile"))
+        {
+            DeSpawn();
+        }
+
+    }
+
+
 }

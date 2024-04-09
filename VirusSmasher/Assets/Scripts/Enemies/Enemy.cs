@@ -9,7 +9,12 @@ public class Enemy : MonoBehaviour
     protected EnemyState _state;
     [SerializeField] protected float _waitTime;
     protected float _timer;
+    protected Vector3 _spawnPosition;
 
+    protected virtual void Awake()
+    {
+        _spawnPosition = transform.position;
+    }
 
     protected virtual void Update()
     {
@@ -70,6 +75,11 @@ public class Enemy : MonoBehaviour
     public virtual void Attack()
     {
 
+    }
+
+    public virtual void Load()
+    {
+        transform.position = _spawnPosition;
     }
 
 

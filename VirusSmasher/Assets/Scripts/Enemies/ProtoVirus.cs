@@ -14,9 +14,9 @@ public class ProtoVirus : Enemy
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        _state = EnemyState.Patrol;
     }
 
 
