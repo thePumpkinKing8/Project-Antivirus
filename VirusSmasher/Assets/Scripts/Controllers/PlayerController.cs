@@ -11,7 +11,18 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Transform _groundCheck;
 
-    [HideInInspector] public float lastDirection = 1;
+    [HideInInspector] public float lastDirection 
+    { 
+        get
+        {
+            return lastDirection;
+        }
+        
+        set 
+        {
+            lastDirection = (value > 0 ? 1 : -1); 
+        } 
+    }
 
 
    [HideInInspector] public Healthbar healthbar;
