@@ -11,16 +11,17 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Transform _groundCheck;
 
+    private float _lastDirection;
     [HideInInspector] public float lastDirection 
     { 
         get
         {
-            return lastDirection;
+            return _lastDirection;
         }
         
         set 
         {
-            lastDirection = (value > 0 ? 1 : -1); 
+            _lastDirection = (value > 0 ? 1 : -1); 
         } 
     }
 
@@ -159,7 +160,8 @@ public class PlayerController : MonoBehaviour
         {
             ChangeState(IsGrounded() ? walkingState : fallingState);
             _rb.velocity = Vector3.zero;
-            transform.position = dashState.storedPosition;
+           // transform.position = dashState.storedPosition;
+            Debug.Log("collidion");
         }
     }
 
