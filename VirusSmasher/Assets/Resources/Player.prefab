@@ -167,7 +167,7 @@ Rigidbody2D:
     m_Bits: 512
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1016131806878973844
 MonoBehaviour:
@@ -182,15 +182,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundCheck: {fileID: 470554086658028201}
-  lastDirection: 0
   healthbar: {fileID: 0}
   grounded: 1
   settings: {fileID: 11400000, guid: 293c631c8f7b4dd49a0f5ef6e875c276, type: 2}
   _rb: {fileID: 0}
   inputController: {fileID: 0}
   dashPower: {fileID: 0}
-  jumpEvent: {fileID: 0}
-  hurtEvent: {fileID: 0}
+  anim: {fileID: 0}
+  jumpEvent: {fileID: 11400000, guid: 0bd2efefe19b2ea489caf762b9c717d6, type: 2}
+  hurtEvent: {fileID: 11400000, guid: 0bd2efefe19b2ea489caf762b9c717d6, type: 2}
 --- !u!114 &7523582084070492862
 MonoBehaviour:
   m_ObjectHideFlags: 0

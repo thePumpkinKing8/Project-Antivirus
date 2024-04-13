@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47aad5f730dcd564295e08c50a30548d, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  movementSpeed: 8
+  movementSpeed: 6
   jumpHeight: 10
   lowJumpMultiplier: 5
   maxHealth: 100
@@ -24,6 +24,8 @@ MonoBehaviour:
   dashTime: 0.1
   dashCoolDown: 0.6
   shrinkValue: 2
+  shieldHealth: 25
+  rechargeTime: 20
   groundCheckRadius: 0.1
   groundLayerMask:
     serializedVersion: 2

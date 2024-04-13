@@ -7,6 +7,8 @@ public class Room : MonoBehaviour
 {
     [Tooltip("static camera stay still, a dynamic camera will follow the player")]
     public CameraType _cameraType;
+    [Tooltip("player spawn position at start of the game")]
+    [SerializeField] private Transform _playerSpawn;
     [SerializeField] private bool _startingRoom;
     public Transform cameraPos;
 
@@ -33,6 +35,7 @@ public class Room : MonoBehaviour
             RoomManager.Instance.LoadRoom(this);
             GameManager.Instance.SetArea();
             Load();
+            GameManager.Instance.player.transform.position = _playerSpawn.position;
         }
         else
             UnLoad();
