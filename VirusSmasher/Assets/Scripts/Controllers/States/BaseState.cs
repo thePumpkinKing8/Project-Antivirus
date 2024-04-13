@@ -42,6 +42,13 @@ public abstract class BaseState
     {
         
     }
+    /// <summary>
+    /// used to handle movement that we want to happen on the fixed update step
+    /// </summary>
+    public virtual void HandleMovement()
+    {
+
+    }
 
     public virtual void ExitState() { }
 

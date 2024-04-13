@@ -211,6 +211,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4491556900272273034, guid: e2a216faed4beee47a0ed25c2e8a6efe, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491556900272273034, guid: e2a216faed4beee47a0ed25c2e8a6efe, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491556900272273034, guid: e2a216faed4beee47a0ed25c2e8a6efe, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -483,9 +495,17 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7682299711248039311, guid: 6b0302161dfbd024ba5379232fdb443f, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 8836100778325312906, guid: 6b0302161dfbd024ba5379232fdb443f, type: 3}
       propertyPath: m_Name
       value: StartingRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 9023527695143879979, guid: 6b0302161dfbd024ba5379232fdb443f, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
