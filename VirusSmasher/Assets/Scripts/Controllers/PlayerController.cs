@@ -125,6 +125,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+        _currentState.HandleMovement();
+    }
+
     public void ChangeState(BaseState state)
     {
        _currentState?.ExitState();
@@ -155,14 +160,16 @@ public class PlayerController : MonoBehaviour
         }
 
        
+
+        /*
         //prevents player from dashing through objects
         if(_currentState == dashState)
         {
             ChangeState(IsGrounded() ? walkingState : fallingState);
             _rb.velocity = Vector3.zero;
-           // transform.position = dashState.storedPosition;
-            Debug.Log("collidion");
+            transform.position = dashState.storedPosition;
         }
+        */
     }
 
     public void OnHit(float damage, Vector2 direction)
