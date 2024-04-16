@@ -34,13 +34,17 @@ public class GameManager : Singleton<GameManager>
     //checks if virus is alive
     public bool CheckVirus(Virus virus)
     {
-        foreach(Virus dead in viruses)
+        if(viruses != null)
         {
-            if(virus == dead)
+            foreach (Virus dead in viruses)
             {
-                return true;
+                if (virus == dead)
+                {
+                    return true;
+                }
             }
         }
+       
         return false;
     }
 
