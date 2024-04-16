@@ -11,6 +11,8 @@ public class Virus : MonoBehaviour
     public int maxHealth = 8;
     private int _health;
 
+    public int cutSceneTime = 1;
+
     [Header("PatrolSettings")]
     public int patrolSpeed = 8;
     public int maxDistance = 8;
@@ -65,13 +67,13 @@ public class Virus : MonoBehaviour
     {
         if (GameManager.Instance.CheckVirus(this))
             Destroy(gameObject);
-
+        _health =  maxHealth;
         _rb = GetComponent<Rigidbody2D>();
 
         _direction = new Vector2(-1f, -1f);
         _spawnPosition = transform.position;
 
-        _bossStates = BossStates.Patrol;
+        _bossStates = BossStates.Idle;
     }
 
     private void Start()
@@ -94,6 +96,9 @@ public class Virus : MonoBehaviour
             case BossStates.Shoot:
                 ProjectileAttackState();
                 break;
+            case BossStates.Idle:
+                IdleState();
+                break;
         }
          
         
@@ -111,14 +116,14 @@ public class Virus : MonoBehaviour
     {
         transform.position = _spawnPosition;
         _health = maxHealth;
-        _bossStates = BossStates.Patrol;
+        _bossStates = BossStates.Idle;
         _patrolTimer = 0;
     }
 
     private void Die()
     {
         //play death animation, remove virus from game
-        GameManager.Instance.AddDeadVirus(this);
+        //GameManager.Instance.AddDeadVirus(this);
         _virusKilled.Raise();
 
         Destroy(gameObject);
@@ -176,6 +181,11 @@ public class Virus : MonoBehaviour
         Direction = target;
     }
 
+    public void IdleState()
+    {
+        StartCoroutine(Idle());
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") || collision.gameObject.layer == LayerMask.NameToLayer("Walls"))
@@ -197,10 +207,18 @@ public class Virus : MonoBehaviour
     private void TakeDamage()
     {
         _health -= 1;
+        Debug.Log("Health");
         //play any damage effects
 
         if (_health <= 0)
             Die();
+    }
+
+    IEnumerator Idle()
+    {
+        yield return new WaitForSeconds(cutSceneTime);
+        _bossStates = BossStates.Patrol;
+        yield return null;
     }
 
     IEnumerator ProjectileAttack()
@@ -258,6 +276,7 @@ public enum BossStates
     Patrol,
     Dash,
     Shoot,
-    Death
+    Death,
+    Idle
 }
 
