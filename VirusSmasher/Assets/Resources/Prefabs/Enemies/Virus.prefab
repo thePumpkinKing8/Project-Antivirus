@@ -99,10 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a68173bc0750d34bbfce402eb97e85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 8
+  patrolSpeed: 8
   contactDamage: 20
   dashDamage: 40
+  dashSpeed: 11
   beamDamage: 30
+  _virusKilled: {fileID: 11400000, guid: 5187a224d979e3a44be43268c1f1e99e, type: 2}
 --- !u!61 &-5926696499824577748
 BoxCollider2D:
   m_ObjectHideFlags: 0

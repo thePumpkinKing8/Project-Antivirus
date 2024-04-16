@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Rigidbody2D _rb;
     [HideInInspector] public InputController inputController;
     [HideInInspector] public Dash dashPower;
+    [HideInInspector] public Compression compressionPower;
+    [HideInInspector] public FireWall shieldPower;
     [HideInInspector] public Animator anim;
 
     //state machine variables
