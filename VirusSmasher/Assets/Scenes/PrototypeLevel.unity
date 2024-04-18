@@ -7056,6 +7056,26 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1456185840}
+    - target: {fileID: 5428924222538338674, guid: f27ac8571cbeb4b4b85bb41d1237d461, type: 3}
+      propertyPath: Dashicon
+      value: 
+      objectReference: {fileID: 3506364087354758384}
+    - target: {fileID: 5428924222538338674, guid: f27ac8571cbeb4b4b85bb41d1237d461, type: 3}
+      propertyPath: Dashpickup
+      value: 
+      objectReference: {fileID: 262651979}
+    - target: {fileID: 5428924222538338674, guid: f27ac8571cbeb4b4b85bb41d1237d461, type: 3}
+      propertyPath: Compressicon
+      value: 
+      objectReference: {fileID: 3506364087354758383}
+    - target: {fileID: 5428924222538338674, guid: f27ac8571cbeb4b4b85bb41d1237d461, type: 3}
+      propertyPath: Firewallicon
+      value: 
+      objectReference: {fileID: 3506364087354758382}
+    - target: {fileID: 5428924222538338674, guid: f27ac8571cbeb4b4b85bb41d1237d461, type: 3}
+      propertyPath: Compresspickup
+      value: 
+      objectReference: {fileID: 1384723415}
     - target: {fileID: 7916543915068801498, guid: f27ac8571cbeb4b4b85bb41d1237d461, type: 3}
       propertyPath: scoreText
       value: 
@@ -7117,6 +7137,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 902195797172049744, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 902195797172049744, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 967424700036127760, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 967424700036127760, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403280163805056908, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_Name
+      value: 'Compress Ability Icon '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490141608876982007, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 22668e483add591428a3f00dfc7e69c9, type: 3}
+    - target: {fileID: 1915313765000344095, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 200.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874991136927798457, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874991136927798457, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2981113433582178865, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d6a5f2b467fd50743a20c2949403998e, type: 3}
     - target: {fileID: 3482040055233516307, guid: caa33c1ead1f10644ad219025343083a, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -7201,11 +7261,86 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4923065206366430171, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_Name
+      value: Dash Ability Icon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001909122027305593, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 259aa8d8e6e179843b3b452dd155f6bb, type: 3}
+    - target: {fileID: 5978951670000043667, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 200.79999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438458430658557565, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_Name
+      value: 'Firewall Ability Icon '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368460377592952233, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b5ecd10ab7b758408d649128c05d1b2, type: 3}
+    - target: {fileID: 8423928208341473435, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423928208341473435, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_margin.w
+      value: -1.8337402
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423928208341473435, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1b8e15711482dee49adbc9c078962c0f, type: 2}
+    - target: {fileID: 8423928208341473435, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423928208341473435, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 830869446777665202, guid: 1b8e15711482dee49adbc9c078962c0f, type: 2}
+    - target: {fileID: 8423928208341473435, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423928208341473435, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423928208341473435, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478257282322787231, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9a87784835870614d93c068dd672e741, type: 3}
+    - target: {fileID: 8849402818795841670, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3bbba16932fb98149abb85df33ba7b25, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+--- !u!1 &3506364087354758382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6438458430658557565, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+  m_PrefabInstance: {fileID: 3506364087354758381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3506364087354758383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1403280163805056908, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+  m_PrefabInstance: {fileID: 3506364087354758381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3506364087354758384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4923065206366430171, guid: caa33c1ead1f10644ad219025343083a, type: 3}
+  m_PrefabInstance: {fileID: 3506364087354758381}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4555547666279797812
 PrefabInstance:
   m_ObjectHideFlags: 0
