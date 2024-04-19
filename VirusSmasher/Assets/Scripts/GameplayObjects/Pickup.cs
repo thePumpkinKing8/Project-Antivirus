@@ -14,6 +14,8 @@ public class Pickup : MonoBehaviour
                 player.dashPower.Collect();
             else if (_power == Power.Shrink)
                 player.GetComponent<Compression>().Collect();
+            else if (_power == Power.Shield)
+                player.GetComponent<FireWall>().Collect();
 
             Destroy(gameObject);
         }

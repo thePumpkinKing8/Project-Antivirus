@@ -87,3 +87,4 @@ public enum CameraType
     Static,
     Dynamic
 }
+
