@@ -9,7 +9,7 @@ public class CollectablePower : MonoBehaviour
     public bool Collected
     {
         get { return _collected; }
-        private set { _collected = value; }
+        set { _collected = value; }
     }
 
     protected PlayerController _player;

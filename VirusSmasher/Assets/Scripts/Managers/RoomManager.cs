@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoomManager : Singleton<RoomManager>
 {
+
+    [HideInInspector] public Room startingRoom;
     private CameraController _camera;
     public Room currentRoom; 
 
@@ -22,5 +24,9 @@ public class RoomManager : Singleton<RoomManager>
         
     }
 
+    public void LoadGame()
+    {
+        startingRoom._startingRoom = true;
+    }
     
 }

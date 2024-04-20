@@ -48,14 +48,22 @@ public class GameManager : Singleton<GameManager>
         return false;
     }
 
-    public void Save()
+    public void Save(Room saveRoom)
     {
-        _saveData.Save(viruses, player.dashPower.Collected, player.compressionPower.Collected, player.shieldPower.Collected);
+        _saveData.Save(saveRoom, viruses, player.dashPower.Collected, player.compressionPower.Collected, player.shieldPower.Collected);
     }
 
     public void Load()
     {
         //set required values to those in saveData
+        RoomManager.Instance.startingRoom = _saveData.SaveRoom;
+
+        player.dashPower.Collected = _saveData.DashCollected;
+
+        player.compressionPower.Collected = _saveData.CompressCollected;
+
+        player.shieldPower.Collected = _saveData.ShieldCollected;
+
     }
 
 }

@@ -9,7 +9,7 @@ public class Room : MonoBehaviour
     public CameraType _cameraType;
     [Tooltip("player spawn position at start of the game")]
     [SerializeField] private Transform _playerSpawn;
-    [SerializeField] private bool _startingRoom;
+    public bool _startingRoom;
     public Transform cameraPos;
 
     private GameEvent _loadEvent;
@@ -23,6 +23,16 @@ public class Room : MonoBehaviour
         { 
             if(gEvent.name == "RoomLoadEvent")
                 _loadEvent = gEvent;
+        }
+
+        if(_startingRoom)
+        {
+            if(RoomManager.Instance.startingRoom == null)
+            {
+                RoomManager.Instance.startingRoom = this;
+            }
+            else
+                _startingRoom = false;
         }
 
     }
@@ -50,7 +60,8 @@ public class Room : MonoBehaviour
 
     public void Load(Door entrance = null )
     {
-        foreach(Transform child in transform)
+
+        foreach (Transform child in transform)
         {
             child.gameObject.SetActive(true);
         }
