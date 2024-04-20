@@ -23,7 +23,7 @@ public class GDTFadeEffect : MonoBehaviour
     void OnEnable()
     {
         halfCycle = false;
-        speed = 1 / timeEffect;
+        speed = 2 / timeEffect;
         goingToLast = firstToLast;
         if (blackImage == null)
         {

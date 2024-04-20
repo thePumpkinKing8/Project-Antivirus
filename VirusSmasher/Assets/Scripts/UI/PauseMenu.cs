@@ -59,16 +59,23 @@ public class PauseMenu : MonoBehaviour
 
 
 
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+
+
     // use later for checkpoints
 
 
-            //if (Task2.activeSelf != false)
-           // {
-               // check2.SetActive(true);
-           // }
-           // else
-            //{
-                //check2.SetActive(false);
-            //}
+    //if (Task2.activeSelf != false)
+    // {
+    // check2.SetActive(true);
+    // }
+    // else
+    //{
+    //check2.SetActive(false);
+    //}
 
 }

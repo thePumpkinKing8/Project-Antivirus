@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoomManager : Singleton<RoomManager>
 {
     private CameraController _camera;
-    public Room currentRoom; 
+    public Room currentRoom;
+
+
+    public GameObject fadeEffect;
+
 
     protected override void Awake()
     {
@@ -15,11 +20,15 @@ public class RoomManager : Singleton<RoomManager>
 
     public void LoadRoom(Room room, Door entrance = null)
     {
-        currentRoom.UnLoad();
-        _camera.ChangeCamera(room._cameraType, room.cameraPos == null ? room.transform.position : room.cameraPos.position);
-        room.Load(entrance);
+        fadeEffect.SetActive(true);
+
+        this.Wait(1.0f, () => { currentRoom.UnLoad(); });
+        this.Wait(1.0f, () => { _camera.ChangeCamera(room._cameraType, room.cameraPos == null ? room.transform.position : room.cameraPos.position); });
+        this.Wait(1.0f, () => { room.Load(entrance); });
         currentRoom = room;
+
         
+
     }
 
     

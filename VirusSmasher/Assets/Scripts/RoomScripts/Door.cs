@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -17,7 +18,9 @@ public class Door : MonoBehaviour
 
     private bool _open = false;
 
-    
+
+
+
 
     public bool Open
     {
@@ -48,8 +51,9 @@ public class Door : MonoBehaviour
             parentRoom = GetComponentInParent<Room>();
             gameObject.name = $"Door{parentRoom.name}"; //to help keep track of what doors connect to what
             _anim = GetComponent<Animator>();
+
         
-        
+
     }
 
     
@@ -79,12 +83,16 @@ public class Door : MonoBehaviour
 
     public void EnterRoom()
     {
-        GameManager.Instance.player.transform.position = _exitLocation.position;
+         GameManager.Instance.player.transform.position = _exitLocation.position; ;
+
     }
 
     private void ExitRoom()
     {
         RoomManager.Instance.LoadRoom(_connectedDoor.parentRoom, _connectedDoor);
+
+        
+
     }
 
     private void Animate(bool value)
