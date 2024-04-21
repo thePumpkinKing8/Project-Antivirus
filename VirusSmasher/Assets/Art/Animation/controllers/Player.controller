@@ -12,7 +12,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Compressed
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: Compressed
+    m_ConditionEvent: Walking
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8709352623091438430}

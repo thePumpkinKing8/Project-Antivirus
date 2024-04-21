@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 20
-  _waitTime: 2
+  _waitTime: 1
   _agroDistance: 20
 --- !u!114 &2490774780930049610
 MonoBehaviour:

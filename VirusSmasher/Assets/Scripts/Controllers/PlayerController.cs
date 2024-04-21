@@ -88,6 +88,8 @@ public class PlayerController : MonoBehaviour
    
     #endregion
 
+
+
     private void Awake()
     {
         if (GameManager.Instance.player == null)
@@ -102,6 +104,8 @@ public class PlayerController : MonoBehaviour
 
         //powers
         dashPower = GetComponent<Dash>();
+        compressionPower = GetComponent<Compression>();
+        shieldPower = GetComponent<FireWall>();
 
         lastDirection = 1;
 

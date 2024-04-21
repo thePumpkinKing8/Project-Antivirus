@@ -48,7 +48,6 @@ public class Spitter : Enemy
 
     private void OnCollisionEnter2D(Collision2D c)
     {
-
         if (c.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Vector2 direction = -c.relativeVelocity.normalized;

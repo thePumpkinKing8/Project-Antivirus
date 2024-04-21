@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FireWall : CollectablePower
 {
-    [SerializeField] private GameObject _shield;
+    [SerializeField] public GameObject _shield;
 
     private int _maxShieldHealth;
     private int _shieldHealth;
@@ -37,6 +37,7 @@ public class FireWall : CollectablePower
             {
                 if (_player.inputController.IsShielding)
                 {
+                    _shield.GetComponent<SpriteRenderer>().color = GameManager.Instance.color;
                     _shield.SetActive(true);
                 }
                 else

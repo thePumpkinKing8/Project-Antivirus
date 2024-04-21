@@ -63,6 +63,8 @@ public class Room : MonoBehaviour
 
     public void Load(Door entrance = null )
     {
+        if (GetComponent<ColorChange>() != null)
+            GetComponent<ColorChange>().SwitchColor();
 
         foreach (Transform child in transform)
         {

@@ -20,8 +20,7 @@ public class ColorChange : MonoBehaviour
                 GameManager.Instance.color = Color.red;
                 break;
         }
-
-        GameManager.Instance.color = Color.green;
+        GameManager.Instance.player.GetComponent<SpriteRenderer>().color = GameManager.Instance.color;
     }
 }
 public enum RoomColor
