@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName ="SaveData", menuName = "SaveData")]
-public class SaveData : MonoBehaviour
+public class SaveData : ScriptableObject
 {
     //spawn position/last save point
 

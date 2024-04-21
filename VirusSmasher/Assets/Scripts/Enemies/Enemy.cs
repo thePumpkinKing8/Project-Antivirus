@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float _waitTime;
     protected float _timer;
     protected Vector3 _spawnPosition;
+    private bool _active = false;
+    
 
     protected virtual void Awake()
     {
@@ -18,18 +20,22 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        switch (_state)
+        if(_active)
         {
-            case EnemyState.Patrol:
-                Patrol();
-                break;
-            case EnemyState.Wait:
-                Wait(_waitTime);
-                break;
-            case EnemyState.Attack:
-                Attack();
-                break;
+            switch (_state)
+            {
+                case EnemyState.Patrol:
+                    Patrol();
+                    break;
+                case EnemyState.Wait:
+                    WaitState(_waitTime);
+                    break;
+                case EnemyState.Attack:
+                    Attack();
+                    break;
+            }
         }
+        
     }
 
     //spawns and despawns object on death 
@@ -62,7 +68,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public virtual void Wait(float time)
+    public virtual void WaitState(float time)
     {
         _timer += Time.deltaTime;
         if (_timer >= _waitTime)
@@ -80,6 +86,14 @@ public class Enemy : MonoBehaviour
     public virtual void Load()
     {
         transform.position = _spawnPosition;
+        _state = EnemyState.Wait;
+        this.Wait(1f, () => { _active = true; });
+    }
+
+
+    public virtual void SetAlive()
+    {
+        _active = false;
     }
 
 

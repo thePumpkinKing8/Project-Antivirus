@@ -18,6 +18,7 @@ public class Door : MonoBehaviour
 
     private bool _open = false;
 
+    [SerializeField] private GameEvent _gameEvent;
 
 
 
@@ -37,22 +38,12 @@ public class Door : MonoBehaviour
             }
         }
     }
-
-    public GameObject pair; //other door to spawn when created
-
-    [HideInInspector] public bool spawner = false;
-
-
-
-
     private void Awake()
     {
        
             parentRoom = GetComponentInParent<Room>();
             gameObject.name = $"Door{parentRoom.name}"; //to help keep track of what doors connect to what
-            _anim = GetComponent<Animator>();
-
-        
+            _anim = GetComponent<Animator>(); 
 
     }
 
@@ -73,6 +64,7 @@ public class Door : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(this.name);
         if(!_isActive)
             return;
         if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
@@ -89,6 +81,7 @@ public class Door : MonoBehaviour
 
     private void ExitRoom()
     {
+        _gameEvent.Raise();
         RoomManager.Instance.LoadRoom(_connectedDoor.parentRoom, _connectedDoor);
 
         

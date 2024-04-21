@@ -56,6 +56,8 @@ public class Slime : Enemy
                 _speed *= -1;
                 _state = EnemyState.Wait;
                 break;
+
+
         }
     }
 }

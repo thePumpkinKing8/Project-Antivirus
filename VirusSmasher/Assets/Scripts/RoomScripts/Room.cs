@@ -16,6 +16,9 @@ public class Room : MonoBehaviour
 
     private void Awake()
     {
+        if (_playerSpawn == null)
+            _playerSpawn = transform;
+
         if (!cameraPos)
             cameraPos = transform;
 
