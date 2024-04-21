@@ -19,7 +19,7 @@ MonoBehaviour:
   invulnFrameTime: 1.5
   knockBackForce: 6
   hitTime: 0.5
-  shootingCooldown: 0.25
+  shootingCooldown: 0.1
   dashDistance: 5
   dashTime: 0.1
   dashCoolDown: 0.6
