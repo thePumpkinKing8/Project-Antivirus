@@ -8,6 +8,17 @@ public class PauseMenu : MonoBehaviour
     public bool gamePaused = false;
     public GameObject pauseMenu;
 
+
+
+    public GameObject Checkpoint1Marker;
+    public GameObject Checkpoint2Marker;
+    public GameObject Checkpoint3Marker;
+
+    public GameObject Checkpoint1Button;
+    public GameObject Checkpoint2Button;
+    public GameObject Checkpoint3Button;
+
+
     void Start()
     {
         pauseMenu.SetActive(false);
@@ -41,6 +52,42 @@ public class PauseMenu : MonoBehaviour
 
             }
         }
+
+
+
+
+
+        if (Checkpoint1Marker.activeSelf != false)
+        {
+            Checkpoint1Button.SetActive(true);
+        }
+        else
+        {
+            Checkpoint1Button.SetActive(false);
+        }
+
+
+
+        if (Checkpoint2Marker.activeSelf != false)
+        {
+            Checkpoint2Button.SetActive(true);
+        }
+        else
+        {
+            Checkpoint2Button.SetActive(false);
+        }
+
+
+
+        if (Checkpoint3Marker.activeSelf != false)
+        {
+            Checkpoint3Button.SetActive(true);
+        }
+        else
+        {
+            Checkpoint3Button.SetActive(false);
+        }
+
     }
 
     public void UnpauseGame()
@@ -63,19 +110,5 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
-
-
-
-    // use later for checkpoints
-
-
-    //if (Task2.activeSelf != false)
-    // {
-    // check2.SetActive(true);
-    // }
-    // else
-    //{
-    //check2.SetActive(false);
-    //}
 
 }

@@ -7,6 +7,10 @@ public class StartMenu : MonoBehaviour
 {
     public GameObject Instructions;
     public GameObject canvas;
+
+
+    [SerializeField]
+    AudioSource ButtonSound;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -27,11 +31,15 @@ public class StartMenu : MonoBehaviour
     public void HowToPlay()
     {
         Instructions.SetActive(true);
+
+        ButtonSound.Play();
     }
 
     public void Exit()
     {
         Application.Quit();
+
+        ButtonSound.Play();
     }
 
     public void HowToclose()
