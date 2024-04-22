@@ -2363,7 +2363,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f3b0ec96230c940be4f5f4cef0f2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingRoom: {fileID: 0}
   currentRoom: {fileID: 0}
+  loadEvent: {fileID: 0}
+  fadeEffect: {fileID: 0}
 --- !u!114 &979280857 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7799919143531481056, guid: 6c2b78ec6e90f1349906c88b52e6e432, type: 3}
@@ -8818,11 +8821,11 @@ SceneRoots:
   - {fileID: 1517147753}
   - {fileID: 919334633}
   - {fileID: 8282666547431227612}
+  - {fileID: 7953524462568378257}
   - {fileID: 788252639}
   - {fileID: 4555547666279797812}
   - {fileID: 361490336}
   - {fileID: 1984952972}
   - {fileID: 369801243}
   - {fileID: 1745410319}
-  - {fileID: 7953524462568378257}
   - {fileID: 1513817784}

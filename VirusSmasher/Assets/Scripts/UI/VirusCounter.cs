@@ -22,7 +22,7 @@ public class VirusCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.scoreText.text = String.Format("{0}", Virusleft);
+        this.scoreText.text = String.Format("{0} Viruses Remaining", Virusleft);
     }
     
 

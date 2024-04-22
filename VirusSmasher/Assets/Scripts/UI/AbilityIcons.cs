@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class AbilityIcons : MonoBehaviour
 {
-    public GameObject Dashpickup;
-    public GameObject Firewallpickup;
-    public GameObject Compresspickup;
-
+    private PlayerController player;
     public GameObject Dashicon;
     public GameObject Firewallicon;
     public GameObject Compressicon;
 
     void Start()
     {
+        player = GameManager.Instance.player;
         Dashicon.SetActive(false);
 
         Firewallicon.SetActive(false);
@@ -24,7 +22,7 @@ public class AbilityIcons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Dashpickup.activeSelf != false)
+        if (player.dashPower.Collected)
          {
          Dashicon.SetActive(true);
          }
@@ -35,7 +33,7 @@ public class AbilityIcons : MonoBehaviour
 
 
 
-        if (Firewallpickup.activeSelf != false)
+        if (player.shieldPower.Collected)
         {
             Firewallicon.SetActive(true);
         }
@@ -46,7 +44,7 @@ public class AbilityIcons : MonoBehaviour
 
 
 
-        if (Compresspickup.activeSelf != false)
+        if (player.compressionPower.Collected)
         {
             Compressicon.SetActive(true);
         }

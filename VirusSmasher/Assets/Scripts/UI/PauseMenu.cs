@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public bool gamePaused = false;
     public GameObject pauseMenu;
 
+    private Image[] buttons;
 
-
-    public GameObject Checkpoint1Marker;
-    public GameObject Checkpoint2Marker;
-    public GameObject Checkpoint3Marker;
+    public Checkpoint Checkpoint1Marker;
+    public Checkpoint Checkpoint2Marker;
+    public Checkpoint Checkpoint3Marker;
 
     public GameObject Checkpoint1Button;
     public GameObject Checkpoint2Button;
@@ -22,6 +23,8 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         pauseMenu.SetActive(false);
+
+        buttons = GetComponentsInChildren<Image>();
 
         Cursor.lockState = CursorLockMode.Locked;
         gamePaused = false;
@@ -38,14 +41,17 @@ public class PauseMenu : MonoBehaviour
                 Time.timeScale = 0;  // stops time in the scene.
                 gamePaused = true;
                 Cursor.lockState = CursorLockMode.None;  // Unlocks the mouse for the player to interact with the pause menu.
-
-
+                InputManager.Instance.enabled = false;
+                foreach(Image button in buttons)
+                {
+                    button.color = GameManager.Instance.color;
+                }
                 pauseMenu.SetActive(true);
             }
             else
             {
                 pauseMenu.SetActive(false);
-
+                InputManager.Instance.enabled = true;
                 Cursor.lockState = CursorLockMode.Locked;
                 gamePaused = false;
                 Time.timeScale = 1;  // Time within the level continues.
@@ -53,10 +59,9 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
+       
 
-
-
-
+        /*
         if (Checkpoint1Marker.activeSelf != false)
         {
             Checkpoint1Button.SetActive(true);
@@ -87,7 +92,7 @@ public class PauseMenu : MonoBehaviour
         {
             Checkpoint3Button.SetActive(false);
         }
-
+        */
     }
 
     public void UnpauseGame()
