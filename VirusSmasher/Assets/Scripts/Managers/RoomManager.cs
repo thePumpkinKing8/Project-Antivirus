@@ -24,9 +24,10 @@ public class RoomManager : Singleton<RoomManager>
     public void LoadRoom(Room room, Door entrance = null)
     {
         fadeEffect.SetActive(true);
+        GameManager.Instance.player.GetComponent<SpriteRenderer>().enabled = false;
         InputManager.Instance.enabled = false;
         this.Wait(1.5f, () => { InputManager.Instance.enabled = true; });
-        this.Wait(1.0f, () => { currentRoom.UnLoad(); });
+        this.Wait(1.0f, () => { GameManager.Instance.player.GetComponent<SpriteRenderer>().enabled = true; });
         this.Wait(1.0f, () => { _camera.ChangeCamera(room._cameraType, room.cameraPos == null ? room.transform.position : room.cameraPos.position); });
         this.Wait(1.0f, () => { room.Load(entrance); });
         currentRoom.UnLoad();

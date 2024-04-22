@@ -31,11 +31,10 @@ public class Door : MonoBehaviour
         }
         set
         {
-            if (_open != value)
-            {
+            
                 _open = value;
                 Animate(_open);
-            }
+            
         }
     }
     private void Awake()
@@ -53,14 +52,11 @@ public class Door : MonoBehaviour
 
     private void Update()
     {
-        
-        
             if (_triggerDistance <= (GameManager.Instance.player.transform.position - transform.position).magnitude)
                 Open = false;
 
             else
                 Open = true;
-        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

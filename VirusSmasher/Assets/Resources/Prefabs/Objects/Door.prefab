@@ -177,10 +177,8 @@ MonoBehaviour:
   _connectedDoor: {fileID: 0}
   parentRoom: {fileID: 0}
   _exitLocation: {fileID: 4401934605775583175}
-  _triggerDistance: 10
+  _triggerDistance: 7
   _gameEvent: {fileID: 11400000, guid: 951d44ed8d568e842b209ada32e06c9a, type: 2}
-  pair: {fileID: 2715526494898249066}
-  spawner: 1
 --- !u!95 &-3258997819093943855
 Animator:
   serializedVersion: 5

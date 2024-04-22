@@ -8,11 +8,23 @@ public class FallingState : Airborne
     {
     }
 
+    public override void EnterState()
+    {
+        base.EnterState();
+        player.anim.SetBool("Falling", true);
+    }
+
     public override void HandleInput()
     {
         base.HandleInput();
 
         if (player.IsGrounded())
             player.ChangeState(input.IsMoving ? player.walkingState : player.idleState);
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+        player.anim.SetBool("Falling", false); 
     }
 }

@@ -12,6 +12,8 @@ public class JumpState : Airborne
     {
         input.IsJumping = true;
 
+        player.anim.SetBool("Jumping", true);
+
         Jump();
     }
 
@@ -33,6 +35,7 @@ public class JumpState : Airborne
 
     public override void ExitState()
     {
+        player.anim.SetBool("Jumping", false);
         input.IsJumping = false;
     }
 }
