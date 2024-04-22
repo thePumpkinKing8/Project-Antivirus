@@ -20,6 +20,13 @@ public class GameManager : Singleton<GameManager>
     public bool Pause { get; private set; }
 
 
+
+    protected void Start()
+    {
+
+        Save(RoomManager.Instance.startingRoom);
+    }
+
     public void SetArea()
     {
         if (SceneManager.GetActiveScene().name == "PrototypeLevel")
@@ -73,6 +80,8 @@ public class GameManager : Singleton<GameManager>
         player.compressionPower.Collected = _saveData.CompressCollected;
 
         player.shieldPower.Collected = _saveData.ShieldCollected;
+
+        RoomManager.Instance.LoadGame();
     }
 
     public void PlayerDie()

@@ -33,7 +33,7 @@ public class Door : MonoBehaviour
         {
             
                 _open = value;
-                Animate(_open);
+                _anim.SetBool("Open", _open);
             
         }
     }

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    public AudioClip pickupSFX;
     [SerializeField] private Power _power;
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            AudioManager.Instance.otherPlay(pickupSFX);
             var player = collision.GetComponent<PlayerController>();
             if (_power == Power.Dash)
                 player.dashPower.Collect();

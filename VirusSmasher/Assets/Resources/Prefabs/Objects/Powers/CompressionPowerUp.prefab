@@ -143,4 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2091441889d0f6341acff235b106ce23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _power: 0
+  pickupSFX: {fileID: 8300000, guid: 96ef650908fd67f4fa0ce52b4c735a13, type: 3}
+  _power: 1

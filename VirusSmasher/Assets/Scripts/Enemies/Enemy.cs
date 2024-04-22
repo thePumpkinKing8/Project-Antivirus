@@ -20,21 +20,25 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        if(_active)
+        if (!GameManager.Instance.Pause)
         {
-            switch (_state)
+            if (_active)
             {
-                case EnemyState.Patrol:
-                    Patrol();
-                    break;
-                case EnemyState.Wait:
-                    WaitState(_waitTime);
-                    break;
-                case EnemyState.Attack:
-                    Attack();
-                    break;
+                switch (_state)
+                {
+                    case EnemyState.Patrol:
+                        Patrol();
+                        break;
+                    case EnemyState.Wait:
+                        WaitState(_waitTime);
+                        break;
+                    case EnemyState.Attack:
+                        Attack();
+                        break;
+                }
             }
         }
+            
         
     }
 

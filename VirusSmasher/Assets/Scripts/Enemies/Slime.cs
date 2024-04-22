@@ -54,6 +54,8 @@ public class Slime : Enemy
         {
             case "Player":
                 HitPlayer(collision);
+                _speed *= -1;
+                _state = EnemyState.Wait;
                 break;
             case "PlayerProjectile":
                 DeSpawn();

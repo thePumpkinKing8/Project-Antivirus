@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Instructions: {fileID: 1317625814}
-  canvas: {fileID: 0}
+  canvas: {fileID: 937865182}
   ButtonSound: {fileID: 1310470562}
 --- !u!4 &627755736
 Transform:
@@ -298,6 +298,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &937865182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 563937371491185450, guid: b4f5b444cb057c3409405a61364dc668, type: 3}
+  m_PrefabInstance: {fileID: 5588687334152355071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1310470561
 GameObject:
   m_ObjectHideFlags: 0

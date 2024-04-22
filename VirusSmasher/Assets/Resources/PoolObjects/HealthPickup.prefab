@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healValue: 10
+  pickSFX: {fileID: 8300000, guid: 5363cc076e0e2dd41ac7e9e478fd2a82, type: 3}
 --- !u!61 &6416141813611960452
 BoxCollider2D:
   m_ObjectHideFlags: 0

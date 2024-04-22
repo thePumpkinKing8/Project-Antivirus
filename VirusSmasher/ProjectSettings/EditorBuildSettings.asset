@@ -17,4 +17,5 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/PrototypeLevel.unity
     guid: 5ec9b4480a8754848b6411c6d8c72a37
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 8e80b3e47718a9c4d8f5d62f26b69fa3, type: 2}

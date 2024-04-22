@@ -38,7 +38,7 @@ public class PauseMenu : MonoBehaviour
         {
             if (gamePaused == false)
             {
-                Time.timeScale = 0;  // stops time in the scene.
+                //Time.timeScale = 0;  // stops time in the scene.
                 gamePaused = true;
                 GameManager.Instance.Paused(gamePaused);
                 Cursor.lockState = CursorLockMode.None;  // Unlocks the mouse for the player to interact with the pause menu.

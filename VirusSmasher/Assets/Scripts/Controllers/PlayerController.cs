@@ -103,7 +103,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        GetComponent<SpriteRenderer>().enabled = true;
         if (GameManager.Instance.player == null)
             GameManager.Instance.player = this;
 
@@ -137,15 +136,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Horizontal = InputManager.Move.ReadValue<Vector2>().x;
-        _currentState.UpdateState();
-        _currentState.HandleInput();
+        if(!GameManager.Instance.Pause)
+        {
+            Horizontal = InputManager.Move.ReadValue<Vector2>().x;
+            _currentState.UpdateState();
+            _currentState.HandleInput();
+        }
 
     }
 
     private void FixedUpdate()
     {
-        _currentState.HandleMovement();
+        if (!GameManager.Instance.Pause)
+            _currentState.HandleMovement();
     }
 
     public void ChangeState(BaseState state)
