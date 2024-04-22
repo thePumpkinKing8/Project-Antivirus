@@ -152,7 +152,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0c367a0d9357d434f9001850d1d5378a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.11
+  m_Volume: 0.07
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -261,6 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 627755736}
   - component: {fileID: 627755735}
+  - component: {fileID: 627755737}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -298,6 +299,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &627755737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627755734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38abc393a04cbf4cb0a690f81ff2ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  color:
+    serializedVersion: 2
+    rgba: 4278255360
+  _saveData: {fileID: 11400000, guid: 77e76ec21e7225f44a6242b692b7bd2c, type: 2}
 --- !u!1 &1310470561
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,25 +618,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 182760487427156481, guid: b4f5b444cb057c3409405a61364dc668, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 182760487427156481, guid: b4f5b444cb057c3409405a61364dc668, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 182760487427156481, guid: b4f5b444cb057c3409405a61364dc668, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 627755735}
-    - target: {fileID: 182760487427156481, guid: b4f5b444cb057c3409405a61364dc668, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 182760487427156481, guid: b4f5b444cb057c3409405a61364dc668, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: StartMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 563937371491185450, guid: b4f5b444cb057c3409405a61364dc668, type: 3}
       propertyPath: m_Name
       value: Start Menu Canvas
@@ -703,6 +705,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3249220149736017798, guid: b4f5b444cb057c3409405a61364dc668, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 627755735}
+    - target: {fileID: 6046638951684207878, guid: b4f5b444cb057c3409405a61364dc668, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 627755737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
