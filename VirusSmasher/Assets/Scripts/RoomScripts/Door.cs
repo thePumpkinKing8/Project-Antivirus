@@ -64,7 +64,6 @@ public class Door : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(this.name);
         if(!_isActive)
             return;
         if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))

@@ -23,13 +23,27 @@ public class Slime : Enemy
     protected override void Update()
     {
         base.Update();
+        if( _state == EnemyState.Patrol )
+        {
+            RaycastHit2D ray = Physics2D.Raycast(new Vector2(transform.position.x - (Mathf.Sign(_speed) * 1.5f), transform.position.y), Vector2.down, 1f, ~LayerMask.GetMask("Enemy"));
+
+            if (ray.point == Vector2.zero)
+            {
+                Debug.Log(transform.position.x + (Mathf.Sign(_speed) * 1.5f));
+                _speed *= -1;
+                _rb.velocity = Vector2.zero;
+                _state = EnemyState.Wait;
+            }
+            else 
+                Debug.Log(ray.point);
+        }
     }
 
     public override void Patrol()
     {
         base.Patrol();
-
         _rb.velocity = new Vector2(-_speed, _rb.velocity.y);
+       
     }
 
     
