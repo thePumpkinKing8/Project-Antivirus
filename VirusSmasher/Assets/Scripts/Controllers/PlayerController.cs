@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip compressSFX;
     public AudioClip shieldBlockSFX;
     public AudioClip shieldUpSFX;
+    public AudioClip dieSFX;
     #endregion
 
     private void Awake()
@@ -210,6 +211,13 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         //player dies
+        AudioManager.Instance.PlayerPlay(dieSFX);
+        anim.SetBool("Die", true);
+        InputManager.Instance.enabled = false;
+        this.Wait(1.06f, () => { GameManager.Instance.PlayerDie(); });
+        this.Wait(1.06f, () => {InputManager.Instance.enabled = false; });
+        this.Wait(1.06f, () => { anim.SetBool("Die", false); });
+        anim.SetBool("Die", true);
     }
 
     private Vector3 GetPlayerDirection()

@@ -10,6 +10,8 @@ public class GameManager : Singleton<GameManager>
 
     public Color32 color = Color.green;
 
+    public WinLoseUI loseUI;
+
     private List<Virus> viruses;
 
     [SerializeField] private SaveData _saveData;
@@ -70,9 +72,11 @@ public class GameManager : Singleton<GameManager>
         player.compressionPower.Collected = _saveData.CompressCollected;
 
         player.shieldPower.Collected = _saveData.ShieldCollected;
+    }
 
-
-     
+    public void PlayerDie()
+    {
+        loseUI.PlayerDeath();
     }
     public void Paused(bool pause)
     {
