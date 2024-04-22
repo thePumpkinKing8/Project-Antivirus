@@ -107,6 +107,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        Debug.Log("return");
         SceneManager.LoadScene(0);
     }
 

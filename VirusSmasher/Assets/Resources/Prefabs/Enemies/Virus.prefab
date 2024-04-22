@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 8
-  cutSceneTime: 1
+  cutSceneTime: 3
   patrolSpeed: 8
   maxDistance: 8
   maxPatrolTime: 5
@@ -147,6 +147,7 @@ MonoBehaviour:
   _projectileSpawner: {fileID: 8812459476544592383}
   _virusKilled: {fileID: 11400000, guid: 5187a224d979e3a44be43268c1f1e99e, type: 2}
   fireSFX: {fileID: 8300000, guid: d5905f9476aecfa429b5ddc5b4908e9c, type: 3}
+  deathSFX: {fileID: 8300000, guid: d77d1f6508c47cb4e8673640bad6fcca, type: 3}
   theme: {fileID: 8300000, guid: bb12ef6948803ac4fb04fbd5c3d30c1c, type: 3}
 --- !u!61 &-5926696499824577748
 BoxCollider2D:
@@ -227,7 +228,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8580500332249464656}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 2a0541b5a7db81c41ace709406bfaca6, type: 2}
   m_Animations:

@@ -90,7 +90,8 @@ public class GameManager : Singleton<GameManager>
     }
     public void Paused(bool pause)
     {
-        Pause = pause; 
+        Pause = pause;
+        Debug.Log(Time.timeScale);
     }
 
 }

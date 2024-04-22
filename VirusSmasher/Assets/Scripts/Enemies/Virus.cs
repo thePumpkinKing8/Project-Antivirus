@@ -88,22 +88,26 @@ public class Virus : MonoBehaviour
 
     private void Update()
     {
-        _rb.velocity = Vector2.zero;
-        switch (_bossStates)
-        { 
-            case BossStates.Patrol:
-                PatrolState();
-                break;
-            case BossStates.Dash:
-                DashAttackState();
-                break;
-            case BossStates.Shoot:
-                ProjectileAttackState();
-                break;
-            case BossStates.Idle:
-                IdleState();
-                break;
+        if(!GameManager.Instance.Pause)
+        {
+            _rb.velocity = Vector2.zero;
+            switch (_bossStates)
+            {
+                case BossStates.Patrol:
+                    PatrolState();
+                    break;
+                case BossStates.Dash:
+                    DashAttackState();
+                    break;
+                case BossStates.Shoot:
+                    ProjectileAttackState();
+                    break;
+                case BossStates.Idle:
+                    IdleState();
+                    break;
+            }
         }
+        
          
         
     }
@@ -128,7 +132,7 @@ public class Virus : MonoBehaviour
     {
         //play death animation, remove virus from game
         //GameManager.Instance.AddDeadVirus(this);
-        _virusKilled.Raise(this);
+        _virusKilled.Raise();
         AudioManager.Instance.musicSource.Stop();
         gameObject.SetActive(false);
     }
@@ -219,7 +223,10 @@ public class Virus : MonoBehaviour
         //play any damage effects
 
         if (_health <= 0)
+        {
             Die();
+        }
+  
     }
 
     IEnumerator Idle()
