@@ -15,7 +15,7 @@ public class Intro : MonoBehaviour
 
     private float sentencedelay = 1.5f;
 
-    private float finishedelay = 5.0f;
+    private float finishedelay = 1.0f;
 
 
 
@@ -37,6 +37,9 @@ public class Intro : MonoBehaviour
     AudioSource TypeNoise;
 
 
+    public GameObject RunProgramButton;
+
+
     private void Awake()
     {
 
@@ -53,6 +56,8 @@ public class Intro : MonoBehaviour
     private void Start()
     {
         SetText(TextTest);
+
+        RunProgramButton.SetActive(false);
     }
 
 
@@ -120,7 +125,7 @@ public class Intro : MonoBehaviour
 
     private void TextComplete()
     {
-        SceneManager.LoadScene(1);
+        RunProgramButton.SetActive(true);
     }
 
 
