@@ -85,10 +85,20 @@ public class PlayerController : MonoBehaviour
     [Header("Events")]
      public GameEvent jumpEvent;
      public GameEvent hurtEvent;
-   
+
     #endregion
 
-
+    //SFX
+    #region Sound
+    [Header("SFX")]
+    public AudioClip jumpSFX;
+    public AudioClip hurtSFX;
+    public AudioClip shootSFX;
+    public AudioClip dashSFX;
+    public AudioClip compressSFX;
+    public AudioClip shieldBlockSFX;
+    public AudioClip shieldUpSFX;
+    #endregion
 
     private void Awake()
     {
@@ -188,6 +198,7 @@ public class PlayerController : MonoBehaviour
         {
             hitState.direction = direction;
             ChangeState(hitState);
+            AudioManager.Instance.PlayerPlay(hurtSFX);
         }
     }
 

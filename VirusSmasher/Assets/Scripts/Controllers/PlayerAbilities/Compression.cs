@@ -47,11 +47,13 @@ public class Compression : CollectablePower
             _player.transform.localScale = new Vector3((_player.transform.localScale.x / _player.settings.shrinkValue) , (_player.transform.localScale.y / _player.settings.shrinkValue) , (_player.transform.localScale.z / _player.settings.shrinkValue));
             
             _player.inputController.IsSmall = true;
+            AudioManager.Instance.PlayerPlay(_player.compressSFX);
         }
         else
         {
             _player.transform.localScale = new Vector3( _playerScale.x * _player.lastDirection, _playerScale.y, _playerScale.z) ;
-            _player.inputController.IsSmall = false;    
+            _player.inputController.IsSmall = false;
+            AudioManager.Instance.PlayerPlay(_player.compressSFX);
         }
     }
 

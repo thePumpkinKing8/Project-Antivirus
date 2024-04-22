@@ -188,9 +188,18 @@ MonoBehaviour:
   _rb: {fileID: 0}
   inputController: {fileID: 0}
   dashPower: {fileID: 0}
+  compressionPower: {fileID: 0}
+  shieldPower: {fileID: 0}
   anim: {fileID: 0}
   jumpEvent: {fileID: 11400000, guid: 0bd2efefe19b2ea489caf762b9c717d6, type: 2}
   hurtEvent: {fileID: 11400000, guid: 0bd2efefe19b2ea489caf762b9c717d6, type: 2}
+  jumpSFX: {fileID: 8300000, guid: 5b30be5d79ea8834fb75834bf50eb425, type: 3}
+  hurtSFX: {fileID: 8300000, guid: 98bc225e0fae8074dad779109b24c86a, type: 3}
+  shootSFX: {fileID: 8300000, guid: de3c17dbf00110e4787fb97e3468766f, type: 3}
+  dashSFX: {fileID: 8300000, guid: 297a86c2a717f51419ee3d3759a8b4ce, type: 3}
+  compressSFX: {fileID: 8300000, guid: 236cb593a4db50a408faac0ff503309f, type: 3}
+  shieldBlockSFX: {fileID: 8300000, guid: 9bbe21fffe832044cb0bfedcade3a476, type: 3}
+  shieldUpSFX: {fileID: 8300000, guid: a936d1f2f32a4c5479e3939f918c6711, type: 3}
 --- !u!114 &7523582084070492862
 MonoBehaviour:
   m_ObjectHideFlags: 0

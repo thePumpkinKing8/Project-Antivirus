@@ -15,6 +15,8 @@ public class JumpState : Airborne
         player.anim.SetBool("Jumping", true);
 
         Jump();
+
+        AudioManager.Instance.PlayerPlay(player.jumpSFX);
     }
 
     private void Jump()

@@ -71,8 +71,12 @@ public class FireWall : CollectablePower
         if( _shieldHealth <= 0 )
         {
             _destroyed = true;
+            AudioManager.Instance.PlayerPlay(_player.shieldUpSFX);
             _timer = 0;
             _shield.SetActive(false);
         }
+
+        else
+            AudioManager.Instance.PlayerPlay(_player.shieldBlockSFX);
     }
 }

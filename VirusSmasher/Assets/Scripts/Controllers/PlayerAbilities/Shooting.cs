@@ -44,5 +44,6 @@ public class Shooting : MonoBehaviour
         projectile.direction = _player.lastDirection;
         projectile.transform.position = _spawner.position;
         projectile.OnSpawn();
+        AudioManager.Instance.PlayerPlay(_player.shootSFX);
     }
 }

@@ -22,7 +22,7 @@ public class DashState : BaseState
         if (direction == Vector2.zero)
             direction = Vector2.right * player.lastDirection;
 
-
+        AudioManager.Instance.PlayerPlay(player.dashSFX);
 
 
     }
