@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Menu.unity
     guid: b1b67968bfc96b844bb77020435c16cc
   - enabled: 1
-    path: Assets/Scenes/PrototypeLevel.unity
-    guid: 5ec9b4480a8754848b6411c6d8c72a37
+    path: Assets/Scenes/Levels/Area1.unity
+    guid: fd74abeae02f29543b71934d060a3e61
   m_configObjects: {}
