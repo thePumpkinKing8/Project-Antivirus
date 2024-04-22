@@ -60,6 +60,12 @@ public class Intro : MonoBehaviour
         RunProgramButton.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            TextComplete();
+    }
+
 
     private void SetText (string text)
     {

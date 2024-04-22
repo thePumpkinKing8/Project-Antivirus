@@ -28,6 +28,7 @@ public class GameManager : Singleton<GameManager>
         }
         Debug.Log(color);
         player.GetComponent<SpriteRenderer>().color = color;
+        player.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     //adds virus to list of dead

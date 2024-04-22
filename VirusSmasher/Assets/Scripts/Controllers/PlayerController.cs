@@ -103,6 +103,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        GetComponent<SpriteRenderer>().enabled = true;
         if (GameManager.Instance.player == null)
             GameManager.Instance.player = this;
 
