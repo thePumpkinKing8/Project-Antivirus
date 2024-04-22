@@ -15,6 +15,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private SaveData _saveData;
 
 
+    public bool Pause { get; private set; }
+
+
     public void SetArea()
     {
         if (SceneManager.GetActiveScene().name == "PrototypeLevel")
@@ -64,6 +67,12 @@ public class GameManager : Singleton<GameManager>
 
         player.shieldPower.Collected = _saveData.ShieldCollected;
 
+
+     
+    }
+    public void Paused(bool pause)
+    {
+        Pause = pause; 
     }
 
 }

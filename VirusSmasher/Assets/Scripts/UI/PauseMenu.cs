@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
 
-        buttons = GetComponentsInChildren<Image>();
+        buttons = pauseMenu.GetComponentsInChildren<Image>();
 
         Cursor.lockState = CursorLockMode.Locked;
         gamePaused = false;
@@ -40,8 +40,8 @@ public class PauseMenu : MonoBehaviour
             {
                 Time.timeScale = 0;  // stops time in the scene.
                 gamePaused = true;
+                GameManager.Instance.Paused(gamePaused);
                 Cursor.lockState = CursorLockMode.None;  // Unlocks the mouse for the player to interact with the pause menu.
-                InputManager.Instance.enabled = false;
                 foreach(Image button in buttons)
                 {
                     button.color = GameManager.Instance.color;
@@ -54,6 +54,7 @@ public class PauseMenu : MonoBehaviour
                 InputManager.Instance.enabled = true;
                 Cursor.lockState = CursorLockMode.Locked;
                 gamePaused = false;
+                GameManager.Instance.Paused(gamePaused);
                 Time.timeScale = 1;  // Time within the level continues.
 
             }
