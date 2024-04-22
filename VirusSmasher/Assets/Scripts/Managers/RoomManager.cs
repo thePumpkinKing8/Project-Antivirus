@@ -42,7 +42,7 @@ public class RoomManager : Singleton<RoomManager>
     public void LoadGame()
     {
         startingRoom._startingRoom = true;
-        LoadGame();
+        LoadRoom(startingRoom);
     }
     
 }
