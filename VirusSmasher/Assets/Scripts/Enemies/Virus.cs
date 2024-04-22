@@ -37,6 +37,10 @@ public class Virus : MonoBehaviour
     [Header("Event")]
     [SerializeField] private GameEvent _virusKilled;
 
+    [Header("Audio")]
+    public AudioClip fireSFX;
+    public AudioClip deathSFX;
+    public AudioClip theme;
 
     private Vector3 _direction;
 
@@ -124,10 +128,9 @@ public class Virus : MonoBehaviour
     {
         //play death animation, remove virus from game
         //GameManager.Instance.AddDeadVirus(this);
-        _virusKilled.Raise();
-
-        Destroy(gameObject);
-
+        _virusKilled.Raise(this);
+        AudioManager.Instance.musicSource.Stop();
+        gameObject.SetActive(false);
     }
 
 
@@ -192,6 +195,11 @@ public class Virus : MonoBehaviour
         {
             _direction = Vector3.Reflect(_direction, collision.contacts[0].normal) ;
         }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && _bossStates == BossStates.Dash)
+        {
+            _player.OnHit(dashDamage, -collision.relativeVelocity.normalized);
+
+        }
         else if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             _player.OnHit(contactDamage, -collision.relativeVelocity.normalized);
@@ -229,6 +237,7 @@ public class Virus : MonoBehaviour
         for(int i = 0; i < shotAmount; i++)
         {
             ShootProjectile();
+            AudioManager.Instance.EnemyPlay(fireSFX);
             yield return new WaitForSeconds(shotDelay);
         }
         ChangeState(BossStates.Patrol);
@@ -268,6 +277,16 @@ public class Virus : MonoBehaviour
         _dIsRunning = false;
         yield return null;
     }
+    private void OnEnable()
+    {
+        if(GameManager.Instance.CheckVirus(this))
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+        AudioManager.Instance.ChangeMusic(theme);
+    }
+
 
 }
 

@@ -29,9 +29,13 @@ public class GameManager : Singleton<GameManager>
     }
 
     //adds virus to list of dead
-    public void AddDeadVirus(Virus virus)
+    public void AddDeadVirus(object virus)
     {
-        viruses.Add(virus);
+        if(virus.GetType() == typeof(Virus))
+        {
+        //    viruses.Add(virus as Virus);
+        }
+
     }
 
     //checks if virus is alive

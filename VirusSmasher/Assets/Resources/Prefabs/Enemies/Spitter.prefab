@@ -174,8 +174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 20
-  _waitTime: 5
+  _waitTime: 2
   _agroDistance: 20
+  fireSFX: {fileID: 8300000, guid: f795206f8eb4bda4b8965b52252e7a04, type: 3}
 --- !u!114 &2490774780930049610
 MonoBehaviour:
   m_ObjectHideFlags: 0

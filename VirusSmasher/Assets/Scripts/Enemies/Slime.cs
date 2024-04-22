@@ -34,8 +34,6 @@ public class Slime : Enemy
                 _rb.velocity = Vector2.zero;
                 _state = EnemyState.Wait;
             }
-            else 
-                Debug.Log(ray.point);
         }
     }
 

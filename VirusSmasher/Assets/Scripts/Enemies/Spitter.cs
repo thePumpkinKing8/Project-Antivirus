@@ -10,6 +10,8 @@ public class Spitter : Enemy
 
     [SerializeField] private int _agroDistance;
 
+    public AudioClip fireSFX;
+
     protected override void Awake()
     {
         base.Awake();
@@ -42,6 +44,7 @@ public class Spitter : Enemy
         projectile.transform.position = _projectileSpawner.position;
         projectile.direction = ((_player.transform.position - transform.position).normalized);
         projectile.Shoot();
+        AudioManager.Instance.EnemyPlay(fireSFX);
 
         _state = EnemyState.Wait;
     }

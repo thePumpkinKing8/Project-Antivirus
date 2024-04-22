@@ -146,6 +146,8 @@ MonoBehaviour:
   shotDelay: 0.2
   _projectileSpawner: {fileID: 8812459476544592383}
   _virusKilled: {fileID: 11400000, guid: 5187a224d979e3a44be43268c1f1e99e, type: 2}
+  fireSFX: {fileID: 8300000, guid: d5905f9476aecfa429b5ddc5b4908e9c, type: 3}
+  theme: {fileID: 8300000, guid: bb12ef6948803ac4fb04fbd5c3d30c1c, type: 3}
 --- !u!61 &-5926696499824577748
 BoxCollider2D:
   m_ObjectHideFlags: 0

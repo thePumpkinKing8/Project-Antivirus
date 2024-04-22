@@ -45,7 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0021091cecabb2c49a2fcf1aa3552725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicVolume: 0.4
+  playerVolume: 0.4
+  enemyVolume: 0.4
+  otherVolume: 0.4
   audioMixer: {fileID: 0}
+  musicSource: {fileID: 4829027723442886535}
+  playerSources: []
+  enemySources: []
+  otherSources: []
 --- !u!82 &4829027723442886535
 AudioSource:
   m_ObjectHideFlags: 0
@@ -60,7 +68,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

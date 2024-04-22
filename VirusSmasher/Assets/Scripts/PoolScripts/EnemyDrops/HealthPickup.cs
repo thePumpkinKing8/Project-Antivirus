@@ -6,6 +6,10 @@ public class HealthPickup : DroppedItem
 {
     [SerializeField] private float healValue;
 
+    private void Awake()
+    {
+        GetComponent<SpriteRenderer>().color = GameManager.Instance.color;
+    }
     protected override void GetItem()
     {
         base.GetItem();

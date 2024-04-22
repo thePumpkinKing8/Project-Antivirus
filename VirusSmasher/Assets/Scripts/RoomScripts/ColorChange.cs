@@ -5,7 +5,7 @@ using UnityEngine;
 public class ColorChange : MonoBehaviour
 {
     public RoomColor roomColor;
-
+    public AudioClip areaBGM;
     public void SwitchColor()
     {
         switch (roomColor)
@@ -21,6 +21,12 @@ public class ColorChange : MonoBehaviour
                 break;
         }
         GameManager.Instance.player.GetComponent<SpriteRenderer>().color = GameManager.Instance.color;
+
+        if(RoomManager.Instance.areaBGM != areaBGM)
+        {
+            RoomManager.Instance.areaBGM = areaBGM;
+            AudioManager.Instance.ChangeMusic(areaBGM);
+        }
     }
 }
 public enum RoomColor

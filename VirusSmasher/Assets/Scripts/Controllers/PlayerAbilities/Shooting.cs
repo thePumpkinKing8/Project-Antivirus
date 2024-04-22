@@ -38,6 +38,8 @@ public class Shooting : MonoBehaviour
     {
         if (GameManager.Instance.Pause)
             return;
+        if (_player.inputController.IsSmall)
+            return;
         _timer = 0;
         _canShoot = false;
         var projectile = PoolManager.Instance.Spawn("Laser").GetComponent<Laser>();

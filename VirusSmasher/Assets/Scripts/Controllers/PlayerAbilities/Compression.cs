@@ -6,9 +6,6 @@ public class Compression : CollectablePower
 {
     private Vector3 _playerScale;
 
-    //multiple press variables
-    private float press = 0;
-    private float time = 0;
     [Tooltip("the time the player has to input a second down input in order to shrink the player")]
     [SerializeField] private float inputDelay = .5f;
     protected override void Awake()
